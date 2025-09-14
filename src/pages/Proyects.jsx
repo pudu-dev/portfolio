@@ -5,42 +5,47 @@ export default function Proyects() {
   const [showGame, setShowGame] = useState(false);
 
   return (
-    <section className="relative w-full h-full isolate overflow-hidden bg-gradient-to-br from-[#000319] via-[#000319] to-[#212c80] p-6 ">
-      <span
-        className="text-[3rem] md:text-[5rem] font-serif text-black font-bold drop-shadow-lg flex justify-center items-center underline decoration-dashed underline-offset-8 text-center"
-        style={{
-          textShadow:
-            "3px 3px 0 white, -3px -3px 0 white, 3px -3px 0 white, -3px 3px 0 white",
-        }}
-      >
+    <section className="relative w-full h-full flex flex-col justify-center items-center isolate overflow-hidden bg-gradient-to-br from-[#000319] via-[#000319] to-[#212c80] p-6 ">
+
+      <span className="text-[3rem] md:text-[5rem] font-serif text-white font-bold drop-shadow-lg flex justify-center items-center underline underline-offset-8 text-center"
+           style={{textShadow: "3px 3px 0 black, -3px -3px 0 black, 3px -3px 0 black, -3px 3px 0 black"}}>
         Proyects
       </span>
 
-      <div className="flex flex-col md:flex-row justify-evenly items-center gap-3 mt-[2rem] ">
-        <SpotlightCard
-          className="custom-spotlight-card"
-          spotlightColor="rgba(0, 229, 255, 0.2)"
-        >
-          <div className="flex flex-col items-center justify-center w-full h-full border-2 rounded-b-4xl">
-            <img
-              src="/src/assets/img/pudulogoinvader.png"
-              alt="PuduGame"
-              name="pudugame"
-            />
-            <span className="text-white text-[1rem] font-semibold m-2">
-              JS VANILLA MINIGAME
+      <div className="grid grid-cols-1 md:flex-row gap-3 mt-[2rem] w-full h-full md:w-[50%] md:h-[50%] ">
+
+        <SpotlightCard className="custom-spotlight-card" spotlightColor="#008A69">
+          <div className="flex flex-col justify-center items-center w-full h-full border-2 rounded-4xl ">
+            <img src="/src/assets/img/pudulogoinvader.png" alt="PuduGame" name="pudugame" className="w-full h-full object-fit rounded-t-4xl"/>
+            <span className="text-white text-[1rem] md:text-[1.2rem] font-semibold text-center whitespace-nowrap m-[1rem]">
+              Game.JS
             </span>
-            <button
-              className="px-4 py-2 border-2 rounded-2 text-white border-black bg-green-700/50 hover:bg-green-700 hover:scale-110"
-              onClick={() => setShowGame(true)}
-            >
-              Play
+            <button onClick={() => setShowGame(true)}
+                    className="mt-auto px-4 py-2 border-2 rounded text-white border-black bg-green-700/50 hover:bg-green-700 hover:scale-110 transition-transform duration-200">
+              <span className='text-[0.8rem] md:text-[1rem] whitespace-nowrap w-full'>
+                Play
+              </span>
             </button>
           </div>
         </SpotlightCard>
-      </div>
 
-      {/* 🔹 Modal */}
+        <SpotlightCard className="custom-spotlight-card" spotlightColor="#5C004A">
+          <div className="flex flex-col justify-center items-center w-full h-full border-2 rounded-5">
+            <img src="/src/assets/img/sysimg.jpg" alt="Pos" name="pos" className="w-full h-full object-fit rounded-t-4xl"/>
+            <span className="text-white text-[1rem] md:text-[1.2rem] font-semibold text-center whitespace-nowrap m-[1rem] ">
+              Punto de Venta.PY
+            </span>
+            <button onClick={() => setShowGame(true)}
+                    className="mt-auto px-1 py-2 border-2 rounded text-white border-black bg-green-700/50 hover:bg-green-700 hover:scale-110 transition-transform duration-200">
+              <span className='text-[0.8rem] md:text-[1rem] whitespace-nowrap'>
+                Github Code
+              </span>
+            </button>
+          </div>
+        </SpotlightCard>
+
+        
+    {/* 🔹 Modal */}
       {showGame && (
         <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
           <div className="bg-white rounded-lg shadow-lg w-[850px] h-[650px] relative">
@@ -49,7 +54,7 @@ export default function Proyects() {
               className="absolute top-2 right-2 bg-red-600 text-white px-3 py-1 rounded hover:bg-red-800"
               onClick={() => setShowGame(false)}
             >
-              ✖
+              <i class="bi bi-x-lg text-white"></i>
             </button>
 
             {/* Juego en iframe */}
@@ -61,7 +66,9 @@ export default function Proyects() {
             />
           </div>
         </div>
-      )}
+      )} 
+
+      </div>
     </section>
   );
 }

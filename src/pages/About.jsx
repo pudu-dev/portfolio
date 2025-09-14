@@ -5,25 +5,34 @@ import GradientText from "../components/TextMain";
 import WhatIdo from '../sections/WhatIdo';
 import MoreAbout from '../sections/MoreAbout'
 import avatar from '../assets/img/avatar.jpg'
+
+import NeonEarth from '../components/neonearth';
+
+
 export default function About() {
 
 
   return (
     <>
       <section className='relative w-full h-full pt-[25%] md:pt-[10%] bg-gradient-to-b from-[#14002e] to-[#000319]'>
-        <FadeContent blur={true} duration={2000} easing="ease-out" initialOpacity={0}>
-        <div className='grid md:grid-cols-[2fr_1fr_2fr] w-full h-full text-white tracking-wide text-center '>
-
+        
+        <div className='grid grid-cols-1 md:grid-cols-2 w-full h-full text-white tracking-wide text-center '>
           <GradientText
             colors={["#40ffaa", "#40b0ff", "#4079ff", "#8a00ff", "#b34fff"]}
             animationSpeed={10}
             showBorder={false}
-            className="text-[clamp(2.5rem,5vw,5rem)]">
+            className="text-[clamp(2.5rem,5vw,5rem)] p-[1rem]">
 
-              WELCOME TO MY <br/>
+              BIENVENIDO A MI <br/>
               PORTFOLIO
           </GradientText>
+          <div className="flex justify-center items-center m-[1rem]">
+            <NeonEarth />
+          </div>
+        </div>
 
+        <FadeContent blur={true} duration={2000} easing="ease-out" initialOpacity={0}>
+        <div className='flex flex-col justify-center items-center w-full h-full text-white tracking-wide text-center mt-[5rem] md:mt-[10rem]'>
           <div className='flex flex-col  md:flex-row items-center justify-center md:gap-x-5'>
             <span className="text-[clamp(2rem,5vw,4rem)]  font-black"
                   style={{textShadow: "1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black"}}>
@@ -31,7 +40,7 @@ export default function About() {
             </span>
             <span className="text-[2rem] md:text-[4rem] font-black mb-1"
                   style={{textShadow: "3px 3px 0 black, -3px -3px 0 black, 3px -3px 0 black, -3px 3px 0 black"}}>
-              IM
+              SOY
             </span>
           </div>
         
@@ -71,7 +80,7 @@ export default function About() {
         </FadeContent>
       </section>
 
-      <section className='bg-gradient-to-b from-[#000319] via-[#002C2E] to-[#000319]'>
+      <section className='bg-[#000319]'> {/* bg-gradient-to-b from-[#000319] via-[#002C2E] to-[#000319] */}
         <WhatIdo/>
       </section>
 

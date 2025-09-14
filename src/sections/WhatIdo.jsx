@@ -31,9 +31,11 @@ export default function WhatIdo() {
       <div className="relative w-full h-full py-6 sm:py-8 md:py-12">
         
         {/* Main Title and Description */}
-        <div ref={whatRef} className="text-white tracking-wide leading-relaxed text-center px-4 sm:px-6 md:px-8 lg:px-12 mt-[1rem] md:mt-[5rem] ">
-          <span className="font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl underline decoration-dotted decoration-2 sm:decoration-4 md:decoration-6 lg:decoration-8 xl:decoration-10 underline-offset-4 sm:underline-offset-6 md:underline-offset-8 lg:underline-offset-10 block mb-4 sm:mb-6 md:mb-8">
-            What & How i Do it?
+        <div ref={whatRef} className="text-white tracking-wide leading-relaxed text-center px-4 sm:px-6 md:px-8 lg:px-12"
+            style={{textShadow: "3px 3px 0 black, -3px -3px 0 black, 3px -3px 0 black, -3px 3px 0 black"}}>
+
+          <span className="font-serif font-bold text-[3rem] md:text-[5rem] underline decoration-dotted decoration-5 text-center drop-shadow-lg">
+            Que hago?
           </span>
           
           <div className="text-center text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl mt-4 sm:mt-6 md:mt-8 lg:mt-12 max-w-4xl mx-auto">

@@ -1,12 +1,6 @@
-import { useState, Children } from "react"
+import { useState, useEffect , Children } from "react"
 
 export default function Cards() {
-
-  const [showMore, setShowMore] = useState(false);
-  const moreAbout = () => setShowMore(true);
-  const [showProfile, setShowProfile] = useState(false);
-  const [index, setIndex] = useState(0);
-
   // Todas las tarjetas
   const cards = [
     // 1. Education
@@ -94,57 +88,56 @@ export default function Cards() {
       <span className="text-[1rem]">no hay referencias aun.</span>
     </div>,
   ];
+  
+  const [showProfile, setShowProfile] = useState(false); //estado para mostrar perfil profesional
+  const [index, setIndex] = useState(0); //estado para botones de carrusel
+  const [paused, setPaused] = useState(false); // 🔹 Estado para pausar el loop
+
+  const total = Children.count(cards);
 
   // Lógica del carrusel
-  const total = Children.count(cards);
   const nextCard = () => setIndex((prev) => (prev + 1) % total);
   const prevCard = () => setIndex((prev) => (prev - 1 + total) % total);
-  const exitCard = () => setShowMore(false);
+  // Loop Carrusel
+
+  useEffect(() => {
+    if (paused) return;
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % total);
+    }, 4000); // cambia cada 4 segundos (ajústalo como quieras)
+
+    return () => clearInterval(interval); // limpiar cuando el componente se desmonte
+  }, [total, paused]);
+
 
   return (
     <>    
-      <section className='flex items-center justify-center'>
-        <div className='bg-transparent my-[1rem] text-black/99 hover:text-white animate-[pulse_3s_infinite]'>
-          {!showMore && (
-            <button onClick={moreAbout} className='w-24 h-12 sm:w-28 sm:h-14 md:w-32 md:h-16 lg:w-36 lg:h-18 bg-gradient-to-r from-[#40ffa9a4] via-[#4079ffb4] to-[#7725de] hover:scale-105 transition-transform duration-300 border-2 border-amber-900 rounded-4 hover:border-red-600'>
-              More about <br/>
-              <i className="bi bi-chevron-double-down"></i>       
-            </button>
-          )}
-          </div>
-      </section>
-          
-      {showMore && (
+    
       <div className="flex flex-col gap-3 bg-[#000319]">
+        
+        {/* Buttons */}
         <div className="flex flex-row w-full h-full justify-center items-center gap-2">
-          {/* Botón retroceder */}
           <button onClick={prevCard}
                   className="px-4 py-3 rounded-2 border-2 border-white hover:bg-indigo-500 transition">
             <i className="bi bi-chevron-double-left text-white"></i>
           </button>
-
-          {/* Botón avanzar */}
           <button onClick={nextCard}
                   className="px-4 py-3 rounded-2 border-2 border-white hover:bg-indigo-500 transition">
             <i className="bi bi-chevron-double-right text-white"></i>
           </button>
-
-          {/* Botón cerrar */}
-          <button onClick={exitCard}
-                  className="px-4 py-3 rounded-2 border-2 border-white hover:bg-indigo-500 transition">
-            <i class="bi bi-x-lg text-white"></i>
-          </button>
         </div>
-
+         {/* Tarjeta actual */}
         <div className="flex w-full h-full justify-center items-center gap-2">
-                {/* Tarjeta actual */}
-          <div className="flex items-center justify-center">
+               
+          <div className="flex items-center justify-center"
+                onMouseEnter={() => setPaused(true)}
+                onMouseLeave={() => setPaused(false)}
+          >
             {cards[index]}
           </div>
         </div>
-        
+
       </div>
-      )}
 
 
       {/* Modal Perfil Profesional */}
