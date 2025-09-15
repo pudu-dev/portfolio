@@ -1,11 +1,16 @@
-/* Pudu game*/
-#canvas {
-    background-color: black;
-    width: 512px;
-    height: 512px;
-    margin-top: 0;
-    margin-left: 3.5px;
+body {
+    background-color:#004103;
+    margin: 0;
+    padding: 0;
+}
 
+#canvas {
+    background-color: transparent;
+    width: 100%;
+    height: fit-content;
+    aspect-ratio: 1 / 1;
+    margin: 0;
+    display: block;
 }
 
 h1 {
@@ -28,24 +33,25 @@ h1 img{
 
 
 #gameContainer {
-  width: 520px;
-  height: 650px;
-
-  position: absolute;
-  top: 0%;                /* Centra verticalmente */
-  right: 40%;               /* Separado del borde derecho */
-  transform: scale(0.8); /* Reduce a la mitad */
+  width: 100%;
+  max-width: 520px;   /* 🔹 límite en desktop */
+  aspect-ratio: 520 / 650; /* 🔹 mantiene la proporción */
+  margin: 0 auto;     /* 🔹 centrado horizontal */
   background-color: #000000af;
+  position: relative;
+  transform: none;    /* ❌ fuera el scale fijo */
+  right: auto;
+  top: auto;
 }
 
 #gameContainer p {
   font-family: 'Courier New', Courier, monospace;
   color:rgb(255, 255, 255);
-  background-color: #000000af;
+  background-color: #0000008e;
 
   position: relative;
   margin: 0;
-  padding: 5%;
+  padding: 10%;
   text-align: left;
 
 }

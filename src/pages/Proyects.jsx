@@ -51,22 +51,18 @@ export default function Proyects() {
         
     {/* 🔹 Modal */}
       {showGame && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg shadow-lg w-[850px] h-[650px] relative">
-            {/* Botón cerrar */}
-            <button
-              className="absolute top-2 right-2 bg-red-600 text-white px-3 py-1 rounded hover:bg-red-800"
-              onClick={() => setShowGame(false)}
-            >
-              <i class="bi bi-x-lg text-white"></i>
-            </button>
-
+        <div className="fixed inset-0 bg-black/90 flex flex-col items-center justify-center z-[9999]">
+          <div className='relative flex justify-center items-center my-[1rem] '>
+          <button className="border-2 bg-red-800/50 active:bg-red-600 text-white px-10 py-2 rounded hover:bg-red-800"
+                  onClick={() => setShowGame(false)}>
+            <i class="bi bi-x-lg text-white"></i>
+          </button>
+          </div>
+          <div className="relative h-[65%] w-[90%] md:h-[70%] md:w-[30%]">
             {/* Juego en iframe */}
             <iframe
               src="/PuduInvaders/Puduevade.html"
-              width="100%"
-              height="100%"
-              className="rounded-b-lg"
+              className="w-full h-full rounded-b-lg"
             />
           </div>
         </div>

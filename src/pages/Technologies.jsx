@@ -50,7 +50,7 @@ export default function Technologies() {
           </ParticleCard>
 
           <ParticleCard>
-            <div className="flex flex-col items-center justify-top w-[100%] h-fit  p-[1rem] rounded-2xl border-4 border-purple-950/25 bg-gradient-to-br from-gray-800/80 to-gray-900/60 shadow-lg transition-transform hover:border-cyan-700">
+            <div className="flex flex-col items-center justify-top w-[100%] p-[1rem] h-fit rounded-2xl border-4 border-purple-950/25 bg-gradient-to-br from-gray-800/80 to-gray-900/60 shadow-lg transition-transform hover:border-cyan-700">
               <span className="text-[1rem] md:text-[2rem] font-semibold text-white text-center mb-[1rem] "> {t("card3_title")}</span>
                 <div className="flex flex-col md:flex-row gap-1 ">
                     <Icons.JavascriptIcon />
