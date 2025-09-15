@@ -2,16 +2,18 @@
 import FadeContent from '../components/FadeContent';
 import GradientText from "../components/TextMain";
 
-import WhatIdo from '../sections/WhatIdo';
-import MoreAbout from '../sections/MoreAbout'
+import WhatIdo from '../sections/sec1About';
+import MoreAbout from '../sections/sec2About'
 import avatar from '../assets/img/avatar.jpg'
 
 import NeonEarth from '../components/neonearth';
 
+import { useTranslation } from "react-i18next";
 
 export default function About() {
 
-
+  const { t } = useTranslation("about");
+  
   return (
     <>
       <section className='relative w-full h-full pt-[25%] md:pt-[10%] bg-gradient-to-b from-[#14002e] to-[#000319]'>
@@ -22,9 +24,7 @@ export default function About() {
             animationSpeed={10}
             showBorder={false}
             className="text-[clamp(2.5rem,5vw,5rem)] p-[1rem]">
-
-              BIENVENIDO A MI <br/>
-              PORTFOLIO
+              {t("welcome")}
           </GradientText>
           <div className="flex justify-center items-center m-[1rem]">
             <NeonEarth />
@@ -40,7 +40,7 @@ export default function About() {
             </span>
             <span className="text-[2rem] md:text-[4rem] font-black mb-1"
                   style={{textShadow: "3px 3px 0 black, -3px -3px 0 black, 3px -3px 0 black, -3px 3px 0 black"}}>
-              SOY
+              {t("hello")}
             </span>
           </div>
         
@@ -50,7 +50,7 @@ export default function About() {
             </div>
             <span className='text-sky-400 text-xs sm:text-sm md:text-base font-mono px-2 py-0.5 border border-sky-500/50 rounded-full flex items-center shadow-sm bg-black/65 cursor-crosshair'>
               <span className="text-[clamp(1rem,5vw,1.5rem)]  text-purple-400">
-                [Alias]:&nbsp;
+                {t("tag")} &nbsp;
               </span>
               <span className="text-[clamp(1rem,5vw,1.5rem)] ">
                 @Pudu<i className="bi bi-person-fill-check"></i><br/>
@@ -58,21 +58,21 @@ export default function About() {
             </span>
             <span className='text-sky-400 text-xs sm:text-sm md:text-base font-mono px-2 py-0.5 border border-sky-500/50 rounded-full flex items-center shadow-sm bg-black/65 cursor-crosshair'>
               <span className="text-[clamp(1rem,5vw,1.5rem)]  text-purple-400">
-                [Name]:&nbsp;
+                {t("tag1")}&nbsp;
               </span>
               <span className="text-[clamp(1rem,5vw,1.5rem)] ">
                 Benjamin Maldonado
               </span>
             </span>
             <span className='border border-white px-1.5 py-0.5 rounded text-[clamp(1.2rem,5vw,2rem)]  text-nowrap'>
-              .Técnico Analista Programador \
+              {t("title")}
             </span>
             <div className='text-center max-w-xs sm:max-w-sm md:max-w-md font-light text-xs sm:text-sm leading-snug px-2'>
               <p className="mb-2">
-                "I am motivated by the continuous improvement of my skills as a programmer."
+               {t("paragraph1")}
               </p>
               <p>
-                "I strive to maintain good development practices, to ensure a clean, modular, and maintainable design."
+                {t("paragraph2")}
               </p>
             </div>
           </div>

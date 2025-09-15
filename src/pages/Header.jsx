@@ -4,9 +4,22 @@ import ShinyText from '../components/ShinyText';
 import StarBorder from '../components/StarBorder';
 import { useState } from "react";
 
+import i18n from "../idiom";
+import { useTranslation } from "react-i18next";
+
 export default function Header({ refs, onNavClick }) {
   const { aboutRef, techRef, proyectsRef, galleryRef } = refs;
   const [open, setOpen] = useState(false);
+
+  const [idiom, setIdiom] = useState("es");
+
+  const toggleLanguage = () => {
+    const newLang = idiom === "es" ? "en" : "es";
+    i18n.changeLanguage(newLang);
+    setIdiom(newLang);
+  };
+
+  const { t } = useTranslation("header");
 
   return (
     <div className="relative flex items-center justify-between mx-3 py-2">
@@ -35,32 +48,41 @@ export default function Header({ refs, onNavClick }) {
               className="bg-gray-900 px-5 py-2.5 rounded-3 shadow hover:bg-sky-400/50"
               onClick={() => onNavClick(aboutRef, "/About")}
             >
-              <ShinyText text="About" disabled={false} className="custom-class" />
+              <ShinyText text={t("about")} disabled={false} className="custom-class" />
             </button>
 
             <button
               className="bg-gray-900 px-5 py-2.5 rounded-3 shadow hover:bg-sky-400/50"
               onClick={() => onNavClick(techRef, "/Technologies")}
             >
-              <ShinyText text="Technologies" disabled={false} className="custom-class" />
+              <ShinyText text={t("technologies")} disabled={false} className="custom-class" />
             </button>
 
             <button
               className="bg-gray-900 px-5 py-2.5 rounded-3 shadow hover:bg-sky-400/50"
               onClick={() => onNavClick(proyectsRef, "/Proyects")}
             >
-              <ShinyText text="Proyects" disabled={false} className="custom-class" />
+              <ShinyText text={t("proyects")} disabled={false} className="custom-class" />
             </button>
 
             <button
               className="bg-gray-900 px-5 py-2.5 rounded-3 shadow hover:bg-sky-400/50"
               onClick={() => onNavClick(galleryRef, "/Gallery")}
             >
-              <ShinyText text="Gallery" disabled={false} className="custom-class" />
+              <ShinyText text={t("gallery")} disabled={false} className="custom-class" />
             </button>
           </nav>
         </StarBorder>
       </div>
+
+       {/* Botón de idioma */}
+      <button
+        onClick={toggleLanguage}
+        className="absolute top-0 right-0 px-3 py-1 bg-gray-800 text-white rounded border-1 border-white hover:bg-gray-700"
+      >
+        {idiom.toUpperCase()}
+      </button>
+
 
       {/* Menú Móvil */}
       <div className="md:hidden flex w-15 h-15 relative z-50  flex-shrink-0">
@@ -102,16 +124,16 @@ export default function Header({ refs, onNavClick }) {
           {/* Opciones */}
           <ul className="grid grid-cols-1 grid-rows-4 text-gray-800 font-medium items-center justify-center text-center px-3 space-y-5 m-0">
             <li onClick={() => { onNavClick(aboutRef, "/About"); setOpen(false); }} className="cursor-pointer hover:text-cyan-500 border-b-2">
-              About
+              {t("about")}
             </li>
             <li onClick={() => { onNavClick(techRef, "/Technologies"); setOpen(false); }} className="cursor-pointer hover:text-cyan-500 border-b-2">
-              Technologies
+              {t("technologies")}
             </li>
             <li onClick={() => { onNavClick(proyectsRef, "/Proyects"); setOpen(false); }} className="cursor-pointer hover:text-cyan-500 border-b-2">
-              Proyects
+              {t("proyects")}
             </li>
             <li onClick={() => { onNavClick(galleryRef, "/Gallery"); setOpen(false); }} className="cursor-pointer hover:text-cyan-500 border-b-2">
-              Gallery
+              {t("gallery")}
             </li>
           </ul>
 

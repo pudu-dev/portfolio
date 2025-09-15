@@ -1,0 +1,21 @@
+{
+  "card_education_title": "Education",
+  "card_education_text": "My university education was in the city of Chillán in:",
+  "card_education_button": "Professional Profile",
+  "card_courses_title": "Courses",
+  "card_achievements_title": "Achievements",
+  "card_experience_title": "Experience",
+  "card_experience_text": "I do not yet have professional work experience.",
+  "card_games_title": "Games",
+  "card_games_text": "Challenger in League of Legends, participating in different teams and tournaments during my time as a player. I learned many soft skills and execution abilities there!",
+  "card_hobbies_title": "Hobbies",
+  "card_hobbies_text": "I am learning Unreal Engine 5, I love video games and I hope to create my own virtual world one day *-*",
+  "card_history_title": "My History",
+  "card_history_text": "I am 29 years old, my birthday is September 2, 1996. I was born and raised in Santiago de Chile.",
+  "card_testimonials_title": "Testimonials",
+  "card_testimonials_text": "There are no references yet.",
+  "professional_profile_title": "Professional Profile",
+  "professional_profile_text": "The Higher Technician in Programmer Analyst from the INACAP Technical Training Center is trained to analyze, design, and develop software applications on various platforms, using agile methodologies and secure software development best practices.\nTheir training allows them to implement technological solutions, manage secure databases, and configure multiplatform work environments, always focused on meeting user needs and optimizing organizational processes.\nDuring their career, they gain practical experience through Learning by Doing, developing projects of increasing complexity that integrate application programming, database design, system component diagramming, and preparation of technological infrastructure.\nThey also strengthen transversal competencies such as problem-solving, innovation and entrepreneurship, ethics and citizenship, collaborative work and communication, and are trained to keep learning continuously, adapting to industry trends.\nThis professional profile enables them to contribute to the development of innovative projects that positively impact the digital transformation of companies and communities, providing cutting-edge technological solutions.\nAdditionally, their training allows for academic continuity towards degrees in computer engineering, cybersecurity, or specialized continuing education programs.",
+  "button_profile": "Professional Profile",
+  "button_close": "Close"
+}

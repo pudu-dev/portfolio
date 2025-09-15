@@ -1,16 +1,20 @@
 import { useState, useEffect , Children } from "react"
 
+import { useTranslation } from "react-i18next";
+
 export default function Cards() {
+
+  const { t } = useTranslation("sec2about");
   // Todas las tarjetas
   const cards = [
     // 1. Education
     <div className="w-80 h-50  md:w-full md:h-full flex flex-col justify-center items-center text-center border-2 bg-green-950/30 rounded-2xl p-2 border-white">
       <span className="text-[2rem] font-bold text-white">
-        Education <i className="bi bi-book text-red-700"></i>
+        {t("card_education_title")}  <i className="bi bi-book text-red-700"></i>
       </span>
       <br />
       <span className="text-[1.4rem] font-semibold text-white">
-        My university education was in the city of Chillan in:
+        {t("card_education_text")}
       </span>
       <img
         src="src/assets/img/logoinacap.png"
@@ -21,13 +25,13 @@ export default function Cards() {
         onClick={() => setShowProfile(!showProfile)}
         className="my-2 border-2 border-black shadow-lg shadow-red-900 rounded p-1 bg-red-700"
       >
-        <span className="text-[1.2rem] text-white">Perfil Profesional</span>
+        <span className="text-[1.2rem] text-white"> {t("card_education_button")} </span>
       </button>
     </div>,
 
     // 2. Courses
     <div className="text-white w-80 h-50 md:w-150 md:h-150 tracking-wide leading-relaxed text-center border-2 bg-green-950/30 p-2 rounded-2xl flex flex-col items-center">
-      <span className="text-[2rem] font-bold text-white mb-4">Cursos</span>
+      <span className="text-[2rem] font-bold text-white mb-4"> {t("card_courses_title")} </span>
       <img
         src="src/assets/img/cs50certificado.png"
         alt="cs50"
@@ -37,7 +41,7 @@ export default function Cards() {
 
     // 3. Achievements
     <div className="text-white w-80 h-50 md:w-120 md:h-120 tracking-wide leading-relaxed text-center border-2 bg-green-950/30 p-2 rounded-2xl flex flex-col items-center">
-      <span className="text-[2rem] font-bold mb-4">Logros</span>
+      <span className="text-[2rem] font-bold mb-4"> {t("card_achievements_title")} </span>
       <img
         src="src/assets/img/oraclect.png"
         alt="oracle"
@@ -47,45 +51,42 @@ export default function Cards() {
 
     // 4. Experience
     <div className="text-white w-80 h-50 md:w-120 md:h-120 text-center border-2 bg-green-950/30 p-2 rounded-2xl">
-      <span className="text-[2rem] font-bold mb-4">Experiencia</span>
+      <span className="text-[2rem] font-bold mb-4"> {t("card_experience_title")} </span>
       <br />
-      <span className="text-[1rem]">aun no cuento con experiencia laboral profesional.</span>
+      <span className="text-[1rem]">{t("card_experience_text")}.</span>
     </div>,
 
     // 5. Games
     <div className="text-white w-80 h-50 md:w-120 md:h-120 text-center border-2 bg-green-950/30 p-2 rounded-2xl flex flex-col justify-center items-center">
-      <span className="text-[2rem] font-bold">Juegos<br /></span>
+      <span className="text-[2rem] font-bold">{t("card_games_title")}<br /></span>
 
       <div className="flex justify-center items-center rounded-full w-15 h-15">
         <img src="/src/assets/img/challengerlogo.png"></img>
       </div>
       <span className="text-[1rem]">
         [2013-2017] <br />
-        Challenger en league of legends, participando en diferentes equipos y torneos durante mi tiempo como jugador.
-        <br />
-        ¡ Aprendi muchas habilidades blandas y de ejecución ahí !
+        {t("card_games_text")}
       </span>
     </div>,
 
     // 6. Hobbies
     <div className="text-white w-80 h-50 md:w-120 md:h-120 text-center border-2 bg-green-950/30 p-2 rounded-2xl flex flex-col justify-center items-center">
-      <span className="text-[2rem] font-bold">Pasatiempos<br /></span>
-      <span className="text-[1rem]">Estoy aprendiendo unreal engine 5, me encantan los videojuegos y espero algun dia crear mi propio mundo virtual *-*</span>
+      <span className="text-[2rem] font-bold"> {t("card_hobbies_title")} <br /></span>
+      <span className="text-[1rem]">{t("card_hobbies_text")}</span>
     </div>,
 
     // 7. My history
     <div className="text-white w-80 h-50 md:w-99 md:h-99 leading-relaxed text-center border-2 bg-green-950/30 p-2 rounded-2xl">
-      <span className="text-[2rem] font-bold">Mi Historia<br /></span>
+      <span className="text-[2rem] font-bold">{t("card_history_title")}<br /></span>
       <span className="text-[1rem]">
-        Tengo 29 años, mi cumpleaños es el 2 de septiembre de 1996. <br/>
-        soy nacido y criado en Santiago de Chile. <br/><br/>
+        {t("card_history_text")}
       </span>
     </div>,
 
     // 8. Testimonials
     <div className="bg-green-950/30 text-white w-80 h-50 md:w-120 md:h-120 text-center border-2 p-2 rounded-2xl">
-      <span className="text-[2rem] font-bold">Testimonios<br /></span>
-      <span className="text-[1rem]">no hay referencias aun.</span>
+      <span className="text-[2rem] font-bold">{t("card_testimonials_title")}<br /></span>
+      <span className="text-[1rem]">{t("card_testimonials_text")}</span>
     </div>,
   ];
   
@@ -108,6 +109,7 @@ export default function Cards() {
 
     return () => clearInterval(interval); // limpiar cuando el componente se desmonte
   }, [total, paused]);
+
 
 
   return (
@@ -146,21 +148,16 @@ export default function Cards() {
           <div className=" bg-black/50 text-white w-[90%] h-[65%] md:w-[50%] md:h-[50%] overflow-y-auto text-center border-2 border-white shadow-[4px_4px_10px_#000350,_-4px_-4px_10px_#000350,4px_-4px_10px_#000350,-4px_4px_10px_#000350]"
                 style={{ scrollbarWidth: "thin", scrollbarColor: "red"}}>
 
-            <span className="text-[2rem] md:text-[3rem] font-bold ">Perfil Profesional</span>
+            <span className="text-[2rem] md:text-[3rem] font-bold ">{t("professional_profile_title")}</span>
             <p className="text-[0.7rem] md:text-[1rem] leading-relaxed font-semibold text-start pt-2 px-4"
                 style={{textShadow: "1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black"}}>
-                El Técnico de Nivel Superior en Analista Programador del Centro de Formación Técnica INACAP está capacitado para analizar, diseñar y desarrollar aplicaciones informáticas en diversas plataformas, utilizando metodologías ágiles y buenas prácticas de desarrollo seguro de software. 
-                Su formación le permite implementar soluciones tecnológicas, gestionar bases de datos seguras y configurar entornos de trabajo multiplataforma, siempre enfocado en satisfacer las necesidades del usuario y optimizar los procesos de las organizaciones.
-                Durante su carrera, adquiere experiencia práctica a través del Aprender Haciendo, desarrollando proyectos de complejidad creciente que integran programación de aplicaciones, diseño de bases de datos, diagramación de componentes de sistemas y preparación de infraestructura tecnológica.
-                 Asimismo, fortalece competencias transversales como resolución de problemas, innovación y emprendimiento, ética y ciudadanía, trabajo colaborativo y comunicación, y se forma para mantenerse en constante aprendizaje, adaptándose a las tendencias de la industria tecnológica.
-                Este perfil profesional le permite contribuir al desarrollo de proyectos innovadores que impactan positivamente en la transformación digital de empresas y comunidades, brindando soluciones tecnológicas de vanguardia.
-                Además, su formación permite la continuidad académica hacia carreras de ingeniería en informática, ciberseguridad o programas de educación continua especializados.
+               {t("professional_profile_text")}
             </p>
             <button
               onClick={() => setShowProfile(false)}
               className="mb-2 px-4 py-2 rounded bg-red-700 text-white"
             >
-              Cerrar
+              {t("button_close")}
             </button>
           </div>
         </div>

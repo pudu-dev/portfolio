@@ -3,6 +3,9 @@ import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import "../components/Neon.css";
 
+import { useTranslation } from "react-i18next";
+
+
 export default function WhatIdo() {
   const whatRef = useRef(null);
   const skillsRef = useRef(null);
@@ -26,6 +29,8 @@ export default function WhatIdo() {
     });
   }, []);
 
+  const { t } = useTranslation("sec1about");
+
   return (
     <>
       <div className="relative w-full h-full py-6 sm:py-8 md:py-12">
@@ -35,16 +40,15 @@ export default function WhatIdo() {
             style={{textShadow: "3px 3px 0 black, -3px -3px 0 black, 3px -3px 0 black, -3px 3px 0 black"}}>
 
           <span className="font-serif font-bold text-[3rem] md:text-[5rem] underline decoration-dotted decoration-5 text-center drop-shadow-lg">
-            Que hago?
+            {t("title_main")}
           </span>
           
           <div className="text-center text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl mt-4 sm:mt-6 md:mt-8 lg:mt-12 max-w-4xl mx-auto">
             <p className="mb-4 sm:mb-6">
-              Convierto ideas en soluciones digitales funcionales y escalables, enfocándome en resultados robustos, seguros y accesibles.
+              {t("paragraph1")}
             </p>
             <p>
-              Para lograrlo, Aplico metodologías ágiles, diseño modular y principios SOLID, combinando frameworks modernos,
-              estructuras optimizadas y automatización de procesos para entregar aplicaciones confiables, eficientes y de alto rendimiento.
+              {t("paragraph2")}
             </p>
           </div>
         </div>
@@ -54,15 +58,15 @@ export default function WhatIdo() {
           <div ref={skillsRef} className="text-white tracking-wide leading-relaxed border-2 rounded-lg shadow-lg bg-white/5 w-fit text-center">       
             <div className="flex items-center">
               <div className="w-full text-center text-lg sm:text-xl md:text-2xl border-b-2 neon-border py-2 sm:py-3 font-semibold">
-                Skills
+                {t("skills_title")}
               </div>
             </div>
             
             <div className="text-sm sm:text-base md:text-lg lg:text-xl p-3 sm:p-4 md:p-6 neon-border space-y-2 px-5">
-              <div> Full Stack</div>
-              <div> Operative Systems</div>
-              <div> DataBases</div>
-              <div> Data analysis</div>
+              <div>{t("skill1")}</div>
+              <div>{t("skill2")}</div>
+              <div>{t("skill3")}</div>
+              <div>{t("skill4")}</div>
             </div>
           </div>
         </div>

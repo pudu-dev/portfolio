@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { createPortal } from "react-dom";
 
+import { useTranslation } from "react-i18next";
+
 export default function Gallery() {
   const imagenes = [
     { id: 1, src: "/src/assets/img/avatar.jpg", caption: "PUDUWU IMAGEN" },
@@ -17,13 +19,16 @@ export default function Gallery() {
   const prevImg = () => setIndex((prev) => (prev - 1 + total) % total);
   const exitImg = () => setShowModal(false);
 
+  const { t } = useTranslation("gallery");
+
+
   return (
     <>
       <section className="relative w-full h-full isolate overflow-hidden bg-gradient-to-tr from-[#000319] via-[#000319] to-[#212c80] p-[1rem]">
         
         <span className="text-[3rem] md:text-[5rem] font-serif text-white font-bold drop-shadow-lg flex justify-center items-center underline underline-offset-8 text-center"
            style={{textShadow: "3px 3px 0 black, -3px -3px 0 black, 3px -3px 0 black, -3px 3px 0 black"}}>
-          Gallery
+          {t("title")}
         </span>
 
         <div className="grid grid-cols-2 gap-[0.5rem] my-[2rem] md:grid-cols-4 md:my-[5rem] md:px-[5rem] md:gap-[2.5rem] ">

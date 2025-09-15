@@ -7,7 +7,6 @@ import Technologies from "./pages/Technologies";
 import Proyects from "./pages/Proyects";
 import Gallery from "./pages/Gallery";
 import Landing from "./pages/Landing";
-
 import LandingCanvas from "./components/bgLanding";
 
 function AppContent() {
