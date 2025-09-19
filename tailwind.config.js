@@ -5,6 +5,7 @@ export default {
   ],
   theme: {
     extend: {
+      
       keyframes: {
 
         shine: {

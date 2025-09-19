@@ -3,7 +3,7 @@ import { useThree, useFrame } from '@react-three/fiber';
 import { useLocation } from 'react-router-dom';
 import * as THREE from 'three';
 import gsap from 'gsap';
-
+//sirve para conectar los modelos 3d al bg con scroll
 export default function CameraController({ moonRef, earthRef, sunRef, blackHoleRef }) {
   const { camera } = useThree();
   const location = useLocation();
@@ -15,10 +15,9 @@ export default function CameraController({ moonRef, earthRef, sunRef, blackHoleR
   useEffect(() => {
     // Mapea rutas a refs y fallback a posición fija
     const routeRef = {
-      '/': earthRef,
-      '/about': moonRef,
-      '/technologies': sunRef,
-      '/proyects': blackHoleRef,
+      '/about': earthRef,
+      '/technologies': moonRef,
+      '/proyects': sunRef,
       '/gallery': blackHoleRef,
     };
 
@@ -30,7 +29,6 @@ export default function CameraController({ moonRef, earthRef, sunRef, blackHoleR
     } else {
       // Posiciones fijas como fallback
       const fixedPositions = {
-        '/': new THREE.Vector3(10, 0, 1),
         '/about': new THREE.Vector3(0, 0, 10),
         '/technologies': new THREE.Vector3(0, 0, 20),
         '/proyects': new THREE.Vector3(0, 0, 30),

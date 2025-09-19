@@ -1,6 +1,7 @@
 {
   "about": "Acerca de",
-  "technologies": "Tecnologías",
+  "technologies": "Tecnologias",
   "proyects": "Proyectos",
-  "gallery": "Galería"
+  "gallery": "Galeria",
+  "bgbutton" : "Fondo"
 }

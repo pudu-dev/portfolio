@@ -5,7 +5,6 @@ import "../components/Neon.css";
 
 import { useTranslation } from "react-i18next";
 
-
 export default function WhatIdo() {
   const whatRef = useRef(null);
   const skillsRef = useRef(null);
@@ -39,10 +38,10 @@ export default function WhatIdo() {
         <div ref={whatRef} className="text-white tracking-wide leading-relaxed text-center px-4 sm:px-6 md:px-8 lg:px-12"
             style={{textShadow: "3px 3px 0 black, -3px -3px 0 black, 3px -3px 0 black, -3px 3px 0 black"}}>
 
-          <span className="font-serif font-bold text-[3rem] md:text-[5rem] underline decoration-dotted decoration-5 text-center drop-shadow-lg">
+          <span className="permanent-marker-regular text-[3rem] md:text-[5rem] text-center drop-shadow-lg">
             {t("title_main")}
           </span>
-          
+    
           <div className="text-center text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl mt-4 sm:mt-6 md:mt-8 lg:mt-12 max-w-4xl mx-auto">
             <p className="mb-4 sm:mb-6">
               {t("paragraph1")}

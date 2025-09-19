@@ -5,6 +5,7 @@ import ParticleCard from "../components/ParticleCard";
 
 import { useTranslation } from "react-i18next";
 
+import Divisor from "../components/divisor";
 
 export default function Technologies() {
 
@@ -12,16 +13,19 @@ export default function Technologies() {
 
   return (
     <>
-      <section className="relative w-full h-full py-12 bg-gradient-to-b from-[#000319] via-[#1b0031] to-[#000319]">
+      <section className="relative w-full h-full py-12 bg-transparent">
         <div className="flex justify-center items-center">
-          <span className="text-[3rem] md:text-[5rem] font-serif text-white font-bold drop-shadow-lg flex justify-center items-center underline underline-offset-8 text-center"
+          <span className="text-[2rem] md:text-[5rem] permanent-marker-regular text-white drop-shadow-lg flex justify-center items-center text-center"
            style={{textShadow: "3px 3px 0 black, -3px -3px 0 black, 3px -3px 0 black, -3px 3px 0 black"}}>
             {t("title")}
           </span>
         </div>
 
+        <div>
+          <Divisor></Divisor>
+        </div>
 
-        <div className="grid grid-cols-4 md:grid-cols-4 justify-center items-start gap-1 md:gap-5 m-[1rem]">  
+        <div className="grid grid-cols-4 md:grid-cols-4 justify-center items-start gap-1 m-[1rem] pt-[2rem] md:px-[10rem] ">  
 
           <ParticleCard>
             <div className="flex flex-col items-center justify-top w-[100%] h-fit p-[1rem] rounded-2xl border-4 border-purple-950/25 bg-gradient-to-br from-gray-800/80 to-gray-900/60 shadow-lg transition-transform hover:border-cyan-700">

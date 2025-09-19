@@ -1,12 +1,9 @@
 
 import FadeContent from '../components/FadeContent';
-import GradientText from "../components/TextMain";
 
 import WhatIdo from '../sections/sec1About';
 import MoreAbout from '../sections/sec2About'
 import avatar from '../assets/img/avatar.jpg'
-
-import NeonEarth from '../components/neonearth';
 
 import { useTranslation } from "react-i18next";
 
@@ -16,28 +13,10 @@ export default function About() {
   
   return (
     <>
-      <section className='relative w-full h-full pt-[25%] md:pt-[10%] bg-gradient-to-b from-[#14002e] to-[#000319]'>
-        
-        <div className='grid grid-cols-1 md:grid-cols-2 w-full h-full text-white tracking-wide text-center '>
-          <GradientText
-            colors={["#40ffaa", "#40b0ff", "#4079ff", "#8a00ff", "#b34fff"]}
-            animationSpeed={10}
-            showBorder={false}
-            className="text-[clamp(2.5rem,5vw,5rem)] p-[1rem]">
-              {t("welcome")}
-          </GradientText>
-          <div className="flex justify-center items-center m-[1rem]">
-            <NeonEarth />
-          </div>
-        </div>
-
+      <section className='relative w-full h-full pt-[5%] bg-transparent'>
         <FadeContent blur={true} duration={2000} easing="ease-out" initialOpacity={0}>
-        <div className='flex flex-col justify-center items-center w-full h-full text-white tracking-wide text-center mt-[5rem] md:mt-[10rem]'>
+        <div className='flex flex-col justify-center items-center w-full h-full text-white tracking-wide text-center'>
           <div className='flex flex-col  md:flex-row items-center justify-center md:gap-x-5'>
-            <span className="text-[clamp(2rem,5vw,4rem)]  font-black"
-                  style={{textShadow: "1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black"}}>
-              👋 
-            </span>
             <span className="text-[2rem] md:text-[4rem] font-black mb-1"
                   style={{textShadow: "3px 3px 0 black, -3px -3px 0 black, 3px -3px 0 black, -3px 3px 0 black"}}>
               {t("hello")}
@@ -80,11 +59,11 @@ export default function About() {
         </FadeContent>
       </section>
 
-      <section className='bg-[#000319]'> {/* bg-gradient-to-b from-[#000319] via-[#002C2E] to-[#000319] */}
+      <section>
         <WhatIdo/>
       </section>
 
-      <section className='bg-[#000319] '>
+      <section>
         <MoreAbout/>
       </section>
     </>

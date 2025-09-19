@@ -26,7 +26,7 @@ function Model() {
   );
 }
 
-useGLTF.preload('/public/glb/neonearth.glb');
+useGLTF.preload('/glb/neonearth.glb');
 
 export default function NeonEarth() {
   return (

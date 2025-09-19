@@ -1,0 +1,74 @@
+import { useNavigate } from "react-router-dom";
+import GradientText from "../components/TextMain";
+import NeonEarth from '../components/neonearth';
+import { useGLTF } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
+import { PerspectiveCamera, Stars } from '@react-three/drei';
+import * as THREE from 'three';
+
+function LoadingCanvas() {
+
+  return (
+    <>
+    <Canvas>
+      <PerspectiveCamera makeDefault position={[0, 0, 1]} fov={60} />
+      <ambientLight intensity={1.5} />
+      <directionalLight position={[2, 2, 5]} intensity={1} />
+      <Stars />
+    </Canvas>
+    </>
+  );
+}
+
+
+export default function Loading() {
+  const navigate = useNavigate();
+
+  const goToHome = () => {
+    navigate("/Landing"); // Va a la ruta Home
+  };
+
+  useGLTF.preload('/glb/neonearth.glb');
+
+  return (
+    <>    
+      <div className="absolute z-0 w-full h-full"> 
+             <LoadingCanvas/>
+      </div>
+         
+      <section className="relative bg-transparent h-full w-full">
+        <div className="flex flex-col md:flex-row items-center justify-center h-full w-full gap-8">
+          <div className='flex flex-col justify-center items-center text-center z-10 px-4'>
+            <GradientText
+              colors={["#40ffaa", "#40b0ff", "#4079ff", "#8a00ff", "#b34fff"]}
+              animationSpeed={10}
+              showBorder={false}
+              className="flex flex-col md:flex-row text-[clamp(2rem,5vw,6rem)] whitespace-nowrap">
+               &lt;/&gt;  ¡ Hello World !<br/>
+            </GradientText>
+
+            <div className="flex justify-center items-center text-center">
+            <button 
+              onClick={goToHome} 
+              className="w-24 h-12 sm:w-28 sm:h-14 md:w-32 md:h-16 lg:w-36 lg:h-18 bg-gradient-to-r from-[#40ffa9a4] via-[#4079ffb4] to-[#7725de] hover:scale-105 transition-transform duration-300 border-2 border-black/99 rounded-4 hover:border-cyan-500">
+              <span className="text-center text-sm sm:text-base md:text-lg text-black font-semibold">
+                GO IN<br/> 
+              </span>
+            </button>
+            </div>
+          </div>
+
+          <div className="w-full md:w-auto flex justify-center ">
+              <NeonEarth/>
+          </div>
+          
+          <div className="absolute bottom-0 right-0 text-gray-800 text-[1rem] ">
+            by Pudu
+          </div>
+          </div>
+      </section>  
+    </>
+  );
+}
+
+

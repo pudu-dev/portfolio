@@ -1,0 +1,43 @@
+import { useGLTF } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
+import * as THREE from 'three';
+
+export default function Background({ moonRef, earthRef, sunRef, blackHoleRef }) {
+  const moonGLTF = useGLTF('/glb/the_moon.glb');
+  const earthGLTF = useGLTF('/glb/earth.glb');
+  const sunGLTF = useGLTF('/glb/mart.glb');
+  const blackHoleGLTF = useGLTF('/glb/blackhole.glb');
+
+  useFrame(() => {
+    if (moonRef.current) {
+      moonRef.current.rotation.y += 0.0003;
+      moonRef.current.rotation.x = THREE.MathUtils.degToRad(10);
+      moonRef.current.rotation.z += 0.0003;
+    }
+    if (earthRef.current) {
+      earthRef.current.rotation.y += 0.0002;
+      earthRef.current.rotation.x = THREE.MathUtils.degToRad(28);
+      earthRef.current.rotation.z += 0.0002;
+    }
+    if (sunRef.current) {
+      sunRef.current.rotation.y += 0.0001;
+      sunRef.current.rotation.x = THREE.MathUtils.degToRad(1);
+      sunRef.current.rotation.z += 0.0001;
+    }
+
+  });
+
+  return (
+    <>
+      <primitive object={earthGLTF.scene} ref={earthRef} scale={1.2} position={[10, 0, 0]} />
+      <primitive object={moonGLTF.scene} ref={moonRef} scale={0.8} position={[-2.2, 0, 18]} />
+      <primitive object={sunGLTF.scene} ref={sunRef} scale={0.030} position={[-8, 0, 20]} />
+      <primitive object={blackHoleGLTF.scene} ref={blackHoleRef} scale={5} position={[0, -6, 30]} />
+    </>
+  );
+}
+
+useGLTF.preload('/glb/the_moon.glb');
+useGLTF.preload('/glb/earth.glb');
+useGLTF.preload('/glb/mart.glb');
+useGLTF.preload('/glb/blackhole.glb');

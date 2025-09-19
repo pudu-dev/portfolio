@@ -3,12 +3,14 @@ import { createPortal } from "react-dom";
 
 import { useTranslation } from "react-i18next";
 
+import Divisor from '../components/divisor';
+
 export default function Gallery() {
   const imagenes = [
-    { id: 1, src: "/src/assets/img/avatar.jpg", caption: "PUDUWU IMAGEN" },
-    { id: 2, src: "/src/assets/img/pm.jpg", caption: "Otra imagen" },
-    { id: 3, src: "/src/assets/img/nonimus.jpeg", caption: "Imagen 3" },
-    { id: 4, src: "/src/assets/img/neonland.jpg", caption: "Imagen 4" },
+    { id: 1, src: "/src/assets/img/chillan.jpg", caption: "" },
+    { id: 2, src: "/src/assets/img/atacama.jpg", caption: "" },
+    { id: 3, src: "/src/assets/img/montañas.jpg", caption: "" },
+    { id: 4, src: "/src/assets/img/neonland.jpg", caption: "" },
   ];
 
   const [showModal, setShowModal] = useState(false);
@@ -24,16 +26,20 @@ export default function Gallery() {
 
   return (
     <>
-      <section className="relative w-full h-full isolate overflow-hidden bg-gradient-to-tr from-[#000319] via-[#000319] to-[#212c80] p-[1rem]">
+      <section className="relative w-full h-full isolate overflow-hidden bg-transparent p-[1rem]">
         
-        <span className="text-[3rem] md:text-[5rem] font-serif text-white font-bold drop-shadow-lg flex justify-center items-center underline underline-offset-8 text-center"
+        <span className="text-[3rem] md:text-[5rem] text-white permanent-marker-regular drop-shadow-lg flex justify-center items-center text-center"
            style={{textShadow: "3px 3px 0 black, -3px -3px 0 black, 3px -3px 0 black, -3px 3px 0 black"}}>
           {t("title")}
         </span>
 
+        <div>
+          <Divisor></Divisor>
+        </div>
+
         <div className="grid grid-cols-2 gap-[0.5rem] my-[2rem] md:grid-cols-4 md:my-[5rem] md:px-[5rem] md:gap-[2.5rem] ">
           {imagenes.map((img, i) => (
-            <figure key={img.id} className="w-[100%] h-[100%] flex flex-col items-center justify-center overflow-hidden rounded-2">
+            <figure key={img.id} className="w-[100%] h-[100%] md:w-[80%] md:h-[80%] flex flex-col items-center justify-center overflow-hidden rounded-2">
               <img
                 onClick={() => {
                   setIndex(i);

@@ -7,7 +7,7 @@ import { useState } from "react";
 import i18n from "../idiom";
 import { useTranslation } from "react-i18next";
 
-export default function Header({ refs, onNavClick }) {
+export default function Header({ refs, onNavClick, onToggleMainBg }) {
   const { aboutRef, techRef, proyectsRef, galleryRef } = refs;
   const [open, setOpen] = useState(false);
 
@@ -76,16 +76,27 @@ export default function Header({ refs, onNavClick }) {
       </div>
 
        {/* Botón de idioma */}
-      <button
+      <div
         onClick={toggleLanguage}
-        className="absolute top-0 right-0 px-3 py-1 bg-gray-800 text-white rounded border-1 border-white hover:bg-gray-700"
+        className="absolute top-[1rem] right-1/3 md:right-[1rem] w-20 h-10 flex items-center rounded-full p-1 cursor-pointer transition-colors
+          bg-gray-700"
       >
-        {idiom.toUpperCase()}
+        <div
+          className={`bg-white w-8 h-8 rounded-full transform transition-transform flex items-center justify-center text-xs font-bold
+            ${idiom === "en" ? "translate-x-10" : "translate-x-0"}`}
+        >
+          {idiom.toUpperCase()}
+        </div>
+      </div>
+            {/* Botón de fondo */}
+      <button
+        className="absolute top-[1rem] right-[5rem] bg-white md:right-[6rem] rounded-2"
+        onClick={onToggleMainBg}>
+        {t("bgbutton")}
       </button>
 
-
       {/* Menú Móvil */}
-      <div className="md:hidden flex w-15 h-15 relative z-50  flex-shrink-0">
+      <div className="md:hidden flex w-10 h-15 relative z-50  flex-shrink-0">
         {/* Botón hamburguesa */}
         <button
           id="menu"
@@ -103,40 +114,58 @@ export default function Header({ refs, onNavClick }) {
             <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
-
         {open && (
-        <div className="fixed top-[4rem] right-[1rem] bg-white border-2 rounded-2">
-          {/* Botón cerrar */}
-          <div className="grid grid-cols-1 justify-self-end border-l-2 border-b-2">
-            <button onClick={() => setOpen(false)}className="">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-
-          {/* Opciones */}
-          <ul className="grid grid-cols-1 grid-rows-4 text-gray-800 font-medium items-center justify-center text-center px-3 space-y-5 m-0">
-            <li onClick={() => { onNavClick(aboutRef, "/About"); setOpen(false); }} className="cursor-pointer hover:text-cyan-500 border-b-2">
-              {t("about")}
-            </li>
-            <li onClick={() => { onNavClick(techRef, "/Technologies"); setOpen(false); }} className="cursor-pointer hover:text-cyan-500 border-b-2">
-              {t("technologies")}
-            </li>
-            <li onClick={() => { onNavClick(proyectsRef, "/Proyects"); setOpen(false); }} className="cursor-pointer hover:text-cyan-500 border-b-2">
-              {t("proyects")}
-            </li>
-            <li onClick={() => { onNavClick(galleryRef, "/Gallery"); setOpen(false); }} className="cursor-pointer hover:text-cyan-500 border-b-2">
-              {t("gallery")}
-            </li>
-          </ul>
-
+          <div className="flex flex-col items-end fixed top-[4rem] right-[1rem] rounded-xl 
+                          backdrop-blur-md bg-gray-900/80 shadow-lg border border-gray-700 
+                          animate-slide-down z-50">
+                          
+            {/* Botón cerrar */}
+            <div className="flex justify-end p-2">
+              <button
+                onClick={() => setOpen(false)}
+                className="text-gray-300 active:text-red-500 transition"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+        
+            {/* Links del menú */}
+            <ul className="flex flex-col text-gray-200 font-medium 
+                           divide-gray-700/50 p-0 m-[1rem] ">
+              <li
+                onClick={() => { onNavClick(aboutRef, "/About"); setOpen(false); }}
+                className="cursor-pointer  px-4 py-2 transition border-y-2 border-gray-800 active:text-green-700"
+              >
+                {t("about")}
+              </li>
+              <li
+                onClick={() => { onNavClick(techRef, "/Technologies"); setOpen(false); }}
+                className="cursor-pointer px-4 py-2 transition border-b-2 border-gray-800 active:text-green-700"
+              >
+                {t("technologies")}
+              </li>
+              <li
+                onClick={() => { onNavClick(proyectsRef, "/Proyects"); setOpen(false); }}
+                className="cursor-pointer  px-4 py-2 transition border-b-2 border-gray-800 active:text-green-700"
+              >
+                {t("proyects")}
+              </li>
+              <li
+                onClick={() => { onNavClick(galleryRef, "/Gallery"); setOpen(false); }}
+                className="cursor-pointer px-4 py-2 transition border-b-2 border-gray-800 active:text-green-700"
+              >
+                {t("gallery")}
+              </li>
+            </ul>
           </div>
         )}
 

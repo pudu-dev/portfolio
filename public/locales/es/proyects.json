@@ -3,5 +3,7 @@
     "card1_title" : "Juego.JS",
     "card1_button" : "Jugar",
     "card2_title" : "Punto de Venta.PY",
-    "card2_button" : "Codigo Github"
+    "card2_button" : "Codigo Github",
+    "card3_title" : "Juego 3D.THREEJS",
+    "card3_button" : "Jugar"
 }
