@@ -78,8 +78,12 @@ export default function Header({ refs, onNavClick, onToggleMainBg }) {
        {/* Botón de idioma */}
       <div
         onClick={toggleLanguage}
-        className="absolute top-[1rem] right-1/3 md:right-[1rem] w-20 h-10 flex items-center rounded-full p-1 cursor-pointer transition-colors
-          bg-gray-700"
+        className="absolute 
+                   top-1/2 -translate-y-1/2
+                   right-1/6 sm:right-[3rem] md:right-[3rem] lg:right-[5rem] xl:right-[12rem]
+                   w-20 h-10 flex items-center rounded-full p-1 cursor-pointer transition-colors
+                 bg-cyan-700/30 hover:bg-cyan-700/90
+                   border"
       >
         <div
           className={`bg-white w-8 h-8 rounded-full transform transition-transform flex items-center justify-center text-xs font-bold
@@ -90,7 +94,18 @@ export default function Header({ refs, onNavClick, onToggleMainBg }) {
       </div>
             {/* Botón de fondo */}
       <button
-        className="absolute top-[1rem] right-[5rem] bg-white md:right-[6rem] rounded-2"
+        className="absolute 
+                  top-1/2 -translate-y-1/2
+                  left-[8rem] sm:left-1/3 md:left-[18rem] lg:left-[10rem] xl:left-1/6 -translate-x-1/2
+                  px-2 py-2 sm:px-5 sm:py-2.5
+                  md:px-6 md:py-3
+                  rounded-3
+                  text-sm sm:text-base
+                  font-semibold
+                text-gray-100
+                bg-cyan-700/30 hover:bg-cyan-700/90
+                  border
+                  "
         onClick={onToggleMainBg}>
         {t("bgbutton")}
       </button>
@@ -115,7 +130,7 @@ export default function Header({ refs, onNavClick, onToggleMainBg }) {
           </svg>
         </button>
         {open && (
-          <div className="flex flex-col items-end fixed top-[4rem] right-[1rem] rounded-xl 
+          <div className="h-fit w-[90%] flex flex-col items-end fixed top-[5rem] right-[1rem] rounded-xl 
                           backdrop-blur-md bg-gray-900/80 shadow-lg border border-gray-700 
                           animate-slide-down z-50">
                           
@@ -139,29 +154,29 @@ export default function Header({ refs, onNavClick, onToggleMainBg }) {
             </div>
         
             {/* Links del menú */}
-            <ul className="flex flex-col text-gray-200 font-medium 
-                           divide-gray-700/50 p-0 m-[1rem] ">
+            <ul className="flex flex-col text-[1.5rem] text-gray-200 font-medium 
+                           divide-gray-700/50 m-[1rem] w-full mt-1 px-6">
               <li
                 onClick={() => { onNavClick(aboutRef, "/About"); setOpen(false); }}
-                className="cursor-pointer  px-4 py-2 transition border-y-2 border-gray-800 active:text-green-700"
+                className="cursor-pointer inline-block px-[6rem] py-2 transition border-y-2 border-gray-800 active:text-green-700"
               >
                 {t("about")}
               </li>
               <li
                 onClick={() => { onNavClick(techRef, "/Technologies"); setOpen(false); }}
-                className="cursor-pointer px-4 py-2 transition border-b-2 border-gray-800 active:text-green-700"
+                className="cursor-pointer px-[6rem] py-2 transition border-b-2 border-gray-800 active:text-green-700"
               >
                 {t("technologies")}
               </li>
               <li
                 onClick={() => { onNavClick(proyectsRef, "/Proyects"); setOpen(false); }}
-                className="cursor-pointer  px-4 py-2 transition border-b-2 border-gray-800 active:text-green-700"
+                className="cursor-pointer  px-[6rem] py-2 transition border-b-2 border-gray-800 active:text-green-700"
               >
                 {t("proyects")}
               </li>
               <li
                 onClick={() => { onNavClick(galleryRef, "/Gallery"); setOpen(false); }}
-                className="cursor-pointer px-4 py-2 transition border-b-2 border-gray-800 active:text-green-700"
+                className="cursor-pointer px-[6rem] py-2 transition border-b-2 border-gray-800 active:text-green-700"
               >
                 {t("gallery")}
               </li>

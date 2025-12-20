@@ -41,7 +41,9 @@ export default function Proyects() {
 
         <SpotlightCard className="custom-spotlight-card" spotlightColor="#5C004A">
           <div className="flex flex-col justify-center items-center w-full h-full border-2 rounded-5">
-            <img src="/src/assets/img/sysimg.jpg" alt="Pos" name="pos" className="w-full h-full object-fit rounded-t-4xl"/>
+            <div className="text-6xl md:text-8xl text-white mt-[1rem]">
+              <i className="bi bi-github"></i>
+            </div>
             <span className="text-white text-[1rem] md:text-[1.2rem] font-semibold text-center whitespace-nowrap m-[1rem] ">
               {t("card2_title")}
             </span>
