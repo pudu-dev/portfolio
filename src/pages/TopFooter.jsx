@@ -150,7 +150,7 @@ export default function TopFooter({ mainRef }) {
 
               {/* Discord */}
               <a
-                href="https://discord.gg/your-invite"
+                href="https://discord.gg/YujfDbDxzZ"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Discord"
@@ -162,7 +162,7 @@ export default function TopFooter({ mainRef }) {
 
               {/* LinkedIn */}
               <a
-                href="https://www.linkedin.com/in/your-profile"
+                href="https://www.linkedin.com/in/pududev/"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
