@@ -7,10 +7,10 @@ import Divisor from '../components/divisor';
 
 export default function Gallery() {
   const imagenes = [
-    { id: 1, src: "/src/assets/img/chillan.jpg", caption: "" },
-    { id: 2, src: "/src/assets/img/atacama.jpg", caption: "" },
-    { id: 3, src: "/src/assets/img/montañas.jpg", caption: "" },
-    { id: 4, src: "/src/assets/img/neonland.jpg", caption: "" },
+    { id: 1, src: "/assets/img/chillan.jpg", caption: "" },
+    { id: 2, src: "/assets/img/atacama.jpg", caption: "" },
+    { id: 3, src: "/assets/img/montañas.jpg", caption: "" },
+    { id: 4, src: "/assets/img/neonland.jpg", caption: "" },
   ];
 
   const [showModal, setShowModal] = useState(false);

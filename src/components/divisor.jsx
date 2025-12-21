@@ -1,4 +1,4 @@
-import Logo from "../assets/img/pudulogo.png"
+import Logo from "/assets/img/pudulogo.png"
 
 export default function Divisor () {
     

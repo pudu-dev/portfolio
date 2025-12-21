@@ -3,7 +3,7 @@ import FadeContent from '../components/FadeContent';
 
 import WhatIdo from '../sections/sec1About';
 import MoreAbout from '../sections/sec2About'
-import avatar from '../assets/img/avatar.jpg'
+import avatar from '/assets/img/avatar.jpg'
 
 import { useTranslation } from "react-i18next";
 

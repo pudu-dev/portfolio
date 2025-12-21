@@ -26,7 +26,7 @@ export default function Proyects() {
 
         <SpotlightCard className="custom-spotlight-card" spotlightColor="#008A69">
           <div className="flex flex-col justify-center items-center w-full h-full border-2 rounded-4xl ">
-            <img src="/src/assets/img/pudulogoinvader.png" alt="PuduGame" name="pudugame" className="w-full h-full object-fit rounded-t-4xl"/>
+            <img src="/assets/img/pudulogoinvader.png" alt="PuduGame" name="pudugame" className="w-full h-full object-fit rounded-t-4xl"/>
             <span className="text-white text-[1rem] md:text-[1.2rem] font-semibold text-center whitespace-nowrap m-[1rem]">
               {t("card1_title")}
             </span>

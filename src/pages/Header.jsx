@@ -1,4 +1,4 @@
-import PuduLogo from '../assets/img/pudulogoz.png'
+import PuduLogo from '/assets/img/pudulogoz.png'
 import { Link } from 'react-router-dom';
 import ShinyText from '../components/ShinyText';
 import StarBorder from '../components/StarBorder';

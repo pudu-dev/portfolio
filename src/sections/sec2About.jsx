@@ -17,7 +17,7 @@ export default function Cards() {
         {t("card_education_text")}
       </span>
       <img
-        src="src/assets/img/logoinacap.png"
+        src="/assets/img/logoinacap.png"
         alt="inacap"
         className="object-cover rounded bg-white scale-60"
       />
@@ -33,7 +33,7 @@ export default function Cards() {
     <div className="text-white w-80 h-50 md:w-150 md:h-150 tracking-wide leading-relaxed text-center border-2 bg-green-950/30 p-2 rounded-2xl flex flex-col items-center">
       <span className="text-[2rem] font-bold text-white mb-4"> {t("card_courses_title")} </span>
       <img
-        src="src/assets/img/cs50certificado.png"
+        src="/assets/img/cs50certificado.png"
         alt="cs50"
         className="object-cover mb-4 rounded"
       />
@@ -43,7 +43,7 @@ export default function Cards() {
     <div className="text-white w-80 h-50 md:w-120 md:h-120 tracking-wide leading-relaxed text-center border-2 bg-green-950/30 p-2 rounded-2xl flex flex-col items-center">
       <span className="text-[2rem] font-bold mb-4"> {t("card_achievements_title")} </span>
       <img
-        src="src/assets/img/oraclect.png"
+        src="/assets/img/oraclect.png"
         alt="oracle"
         className="object-cover mb-4 rounded"
       />
@@ -61,7 +61,7 @@ export default function Cards() {
       <span className="text-[2rem] font-bold">{t("card_games_title")}<br /></span>
 
       <div className="flex justify-center items-center rounded-full w-15 h-15">
-        <img src="/src/assets/img/challengerlogo.png"></img>
+        <img src="/assets/img/challengerlogo.png"></img>
       </div>
       <span className="text-[1rem]">
         [2013-2017] <br />
