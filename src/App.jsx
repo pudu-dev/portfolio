@@ -11,7 +11,7 @@ import Scene from "./pages/Scene";
 import Landing from "./pages/Landing";
 import Loading from "./pages/Loading";
 
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 
 
 function AppContent() {
