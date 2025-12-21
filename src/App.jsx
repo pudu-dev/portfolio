@@ -11,6 +11,8 @@ import Scene from "./pages/Scene";
 import Landing from "./pages/Landing";
 import Loading from "./pages/Loading";
 
+import { Analytics } from "@vercel/analytics/next"
+
 
 function AppContent() {
   const location = useLocation();
@@ -123,6 +125,7 @@ function AppContent() {
 export default function App() {
   return (
     <Router>
+      <Analytics/>
       <AppContent />
     </Router>
   );
