@@ -1,4 +1,5 @@
 import PuduLogo from '/assets/img/pudulogoz.png'
+import bgicon from '/assets/img/bgicon.png'
 import { Link } from 'react-router-dom';
 import ShinyText from '../components/ShinyText';
 import StarBorder from '../components/StarBorder';
@@ -36,37 +37,47 @@ export default function Header({ refs, onNavClick, onToggleMainBg }) {
       
 
       {/* Navegación Desktop */}
-      <div className="hidden md:flex fixed left-1/2 transform -translate-x-1/2 rounded tracking-wide z-50">
+      <div className="fixed items-center justify-center left-1/2 transform -translate-x-1/2 rounded tracking-wide z-50 
+                      hidden md:flex md:flex-row md:w-[50%] items-center justify-center">
         <StarBorder
           as="div"
           className="custom-class rounded-lg backdrop-blur-sm"
           color="magenta"
           speed="15s"
         >
-          <nav className="flex items-center justify-center gap-3 font-monospace text-lg no-underline">
+          <nav className="flex flex-row items-center justify-center font-monospace no-underline
+                          text-[1rem] sm:text-[1rem] md:text-[0.8rem] lg:text-[1rem] xl:text-[1.2rem] 2xl:text-[1.5rem]
+                          md:gap-[0.5rem] lg:gap-[1rem] xl:gap-[2rem]
+                          px-[0.1rem]
+                          py-[0.1rem]
+                          ">
             <button
-              className="bg-gray-900 px-5 py-2.5 rounded-3 shadow hover:bg-sky-400/50"
+              className="bg-gray-900 rounded-3 shadow hover:bg-sky-400/50 whitespace-nowrap
+                         md:px-3 md:py-2 lg:px-4 lg:py-2.5 xl:px-5 xl:py-3"
               onClick={() => onNavClick(aboutRef, "/About")}
             >
               <ShinyText text={t("about")} disabled={false} className="custom-class" />
             </button>
 
             <button
-              className="bg-gray-900 px-5 py-2.5 rounded-3 shadow hover:bg-sky-400/50"
+              className="bg-gray-900 rounded-3 shadow hover:bg-sky-400/50
+                         md:px-3 md:py-2 lg:px-4 lg:py-2.5 xl:px-5 xl:py-3"
               onClick={() => onNavClick(techRef, "/Technologies")}
             >
               <ShinyText text={t("technologies")} disabled={false} className="custom-class" />
             </button>
 
             <button
-              className="bg-gray-900 px-5 py-2.5 rounded-3 shadow hover:bg-sky-400/50"
+              className="bg-gray-900 rounded-3 shadow hover:bg-sky-400/50
+                        md:px-3 md:py-2 lg:px-4 lg:py-2.5 xl:px-5 xl:py-3"
               onClick={() => onNavClick(proyectsRef, "/Proyects")}
             >
               <ShinyText text={t("proyects")} disabled={false} className="custom-class" />
             </button>
 
             <button
-              className="bg-gray-900 px-5 py-2.5 rounded-3 shadow hover:bg-sky-400/50"
+              className="bg-gray-900 rounded-3 shadow hover:bg-sky-400/50
+                         md:px-3 md:py-2 lg:px-4 lg:py-2.5 xl:px-5 xl:py-3"
               onClick={() => onNavClick(galleryRef, "/Gallery")}
             >
               <ShinyText text={t("gallery")} disabled={false} className="custom-class" />
@@ -78,11 +89,11 @@ export default function Header({ refs, onNavClick, onToggleMainBg }) {
        {/* Botón de idioma */}
       <div
         onClick={toggleLanguage}
-        className="absolute 
+        className="absolute items-center justify-center
                    top-1/2 -translate-y-1/2
-                   right-1/6 sm:right-[3rem] md:right-[3rem] lg:right-[5rem] xl:right-[12rem]
+                   right-1/6 sm:right-[10rem] md:right-[0.2rem] lg:right-1/10 xl:right-1/15 2xl:right-1/8
                    w-20 h-10 flex items-center rounded-full p-1 cursor-pointer transition-colors
-                 bg-cyan-700/30 hover:bg-cyan-700/90
+                   bg-cyan-700/30 hover:bg-cyan-700/90
                    border"
       >
         <div
@@ -94,19 +105,23 @@ export default function Header({ refs, onNavClick, onToggleMainBg }) {
       </div>
             {/* Botón de fondo */}
       <button
-        className="absolute 
+        className="absolute items-center justify-center
                   top-1/2 -translate-y-1/2
-                  left-[8rem] sm:left-1/3 md:left-[18rem] lg:left-[10rem] xl:left-1/6 -translate-x-1/2
-                  px-2 py-2 sm:px-5 sm:py-2.5
-                  md:px-6 md:py-3
+                  right-[8rem] sm:right-1/3 md:right-[3rem] lg:right-1/8 xl:right-1/8 -translate-x-1/2
+                  px-2 sm:px-5 md:px-6 md:py-3
+                  py-2 sm:py-2.5 md:py-3
                   rounded-3
                   text-sm sm:text-base
                   font-semibold
-                text-gray-100
-                bg-cyan-700/30 hover:bg-cyan-700/90
+                  text-gray-100
+                  bg-cyan-700/30 hover:bg-cyan-700/90
                   border
                   "
         onClick={onToggleMainBg}>
+          <img src={bgicon}
+               alt="bgicon"
+               className="w-3 h-3 object-contain flex justify-center items-center inline-block mr-2 filter invert brightness-200 contrast-150"
+          />
         {t("bgbutton")}
       </button>
 

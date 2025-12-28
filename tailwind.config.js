@@ -5,6 +5,30 @@ export default {
   ],
   theme: {
     extend: {
+
+      screens: {
+        /* Teléfonos */
+        'phone-little': '360px',
+        'phone-middle': '390px',
+        'phone-large': '430px',
+            
+        /* Tablets */
+        'tablet-little': '768px',
+        'tablet-middle': { min: '767px', max: '1023px' },
+        'tablet-large': '1024px',
+            
+        /* Notebooks */
+        'laptop-little': '1280px',
+        'laptop-middle': '1440px',
+            
+        /* PCs */
+        'desktop-little': '1536px',
+        'desktop-large': '1920px',
+            
+        /* TVs */
+        'tv': '2560px',
+      },
+
       
       keyframes: {
 
