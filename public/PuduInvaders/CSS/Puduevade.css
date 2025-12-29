@@ -87,3 +87,53 @@ h1 img{
   z-index: 10;
   display: none;
 }
+
+/* Controles móviles responsivos */
+#mobileControls {
+  position: fixed !important;
+  right: 5vw !important;
+  bottom: 3vh !important;
+  left: auto !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 99999 !important;
+  user-select: none;
+  pointer-events: auto;
+}
+
+#mobileControls .mobile-btn {
+  width: 14vw;
+  height: 14vw;
+  max-width: 70px;
+  max-height: 70px;
+  min-width: 40px;
+  min-height: 40px;
+  font-size: 2.2rem;
+  border-radius: 50%;
+  border: 2px solid #228B22;
+  background: #004103e6;
+  color: #fff;
+  box-shadow: 0 2px 8px #0006;
+  margin: 0 5px;
+  transition: background 0.2s, transform 0.2s;
+}
+#mobileControls .mobile-btn:active {
+  background: #228B22;
+  transform: scale(0.95);
+}
+
+/* Mejor estructura en filas */
+#mobileControls > div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Solo mostrar en pantallas pequeñas */
+@media (min-width: 700px) {
+  #mobileControls {
+    display: none !important;
+  }
+}

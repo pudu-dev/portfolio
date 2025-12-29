@@ -51,8 +51,8 @@ let frameY = 0; // fila inferior (auto visto desde arriba)
 let alienArray = [];
 let alienWidth = tileSize*3; // determinamos los pixeles  de ancho
 let alienHeight = tileSize*1.5; // determinamos los pixeles  de alto
-let alienX = tileSize;
-let alienY = tileSize;
+/* let alienX = tileSize;
+let alienY = tileSize; */
 let alienImg;
 
 let alienFilas = 2;
@@ -119,6 +119,7 @@ window.onload = function() {
             Start = true;
             botonInicio.style.display = "none";
             botonReiniciar.style.display = "none";
+            updateMobileControlsVisibility(); // Mostrar controles móviles si corresponde
         };
         // solo inicializamos el bucle, el dibujo se hace en `update`
         requestAnimationFrame(update);
@@ -282,7 +283,6 @@ function update() {
         nivel++;
     }
 
-
 //***Funcion mover auto */
 function moveauto(e) {
     if (gameOver){
@@ -345,5 +345,90 @@ botonReiniciar.onclick = function () {
 
     botonReiniciar.style.display = "none";
     botonInicio.style.display = "none";
+    updateMobileControlsVisibility(); // Mostrar controles móviles si corresponde
     loopInicio();
 };
+
+// === Botones de control móvil ===
+let mobileControls = document.createElement("div");
+mobileControls.id = "mobileControls";
+mobileControls.style.position = "absolute";
+mobileControls.style.right = "25vw"; // Cambiado: alineado a la derecha
+mobileControls.style.bottom = "0vh";
+mobileControls.style.left = "auto"; // Elimina el centrado horizontal
+mobileControls.style.transform = "none"; // Elimina el translateX
+mobileControls.style.display = "flex";
+mobileControls.style.flexDirection = "column";
+mobileControls.style.alignItems = "center";
+mobileControls.style.gap = "10px";
+mobileControls.style.zIndex = "1000";
+mobileControls.style.userSelect = "none";
+
+// Crear botones
+let btnLeft = document.createElement("button");
+btnLeft.innerHTML = "&#8592;";
+btnLeft.className = "mobile-btn";
+
+let btnRight = document.createElement("button");
+btnRight.innerHTML = "&#8594;";
+btnRight.className = "mobile-btn";
+
+let btnUp = document.createElement("button");
+btnUp.innerHTML = "&#8593;";
+btnUp.className = "mobile-btn";
+
+let btnDown = document.createElement("button");
+btnDown.innerHTML = "&#8595;";
+btnDown.className = "mobile-btn";
+
+// Estructura de los botones en cruz
+let rowUp = document.createElement("div");
+rowUp.style.display = "flex";
+rowUp.style.justifyContent = "center";
+rowUp.appendChild(btnUp);
+
+let rowMiddle = document.createElement("div");
+rowMiddle.style.display = "flex";
+rowMiddle.style.justifyContent = "center";
+rowMiddle.style.gap = "30px";
+rowMiddle.appendChild(btnLeft);
+rowMiddle.appendChild(btnRight);
+
+let rowDown = document.createElement("div");
+rowDown.style.display = "flex";
+rowDown.style.justifyContent = "center";
+rowDown.appendChild(btnDown);
+
+mobileControls.appendChild(rowUp);
+mobileControls.appendChild(rowMiddle);
+mobileControls.appendChild(rowDown);
+
+document.body.appendChild(mobileControls);
+
+// Mostrar solo en pantallas pequeñas
+function updateMobileControlsVisibility() {
+    if (window.innerWidth < 700 && Start) { // Solo mostrar si el juego ha iniciado
+        mobileControls.style.display = "flex";
+    } else {
+        mobileControls.style.display = "none";
+    }
+}
+window.addEventListener("resize", updateMobileControlsVisibility);
+mobileControls.style.display = "none"; // Ocultar al cargar
+
+// Función para simular eventos de teclado
+function simulateKey(code) {
+    moveauto({ code: code });
+}
+
+// Eventos táctiles
+btnLeft.addEventListener("touchstart", e => { e.preventDefault(); simulateKey("ArrowLeft"); });
+btnRight.addEventListener("touchstart", e => { e.preventDefault(); simulateKey("ArrowRight"); });
+btnUp.addEventListener("touchstart", e => { e.preventDefault(); simulateKey("ArrowUp"); });
+btnDown.addEventListener("touchstart", e => { e.preventDefault(); simulateKey("ArrowDown"); });
+
+// También permitir click para pruebas en PC
+btnLeft.addEventListener("mousedown", () => simulateKey("ArrowLeft"));
+btnRight.addEventListener("mousedown", () => simulateKey("ArrowRight"));
+btnUp.addEventListener("mousedown", () => simulateKey("ArrowUp"));
+btnDown.addEventListener("mousedown", () => simulateKey("ArrowDown"));
