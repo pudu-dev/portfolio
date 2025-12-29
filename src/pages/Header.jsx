@@ -23,7 +23,7 @@ export default function Header({ refs, onNavClick, onToggleMainBg }) {
   const { t } = useTranslation("header");
 
   return (
-    <div className="relative flex items-center justify-between mx-3 py-2">
+    <div className="relative flex items-center justify-between mx-1 py-2">
       {/* Logo */}
       <div className="flex-shrink-0 items-center object-center w-15 h-15 md:w-25 md:h-25 object-contain backdrop-blur-sm bg-cyan-700/30 hover:bg-cyan-700/90 rounded-full border-2 border-transparent hover:border-white  hover:scale-110">
         <Link to="/">
@@ -38,7 +38,7 @@ export default function Header({ refs, onNavClick, onToggleMainBg }) {
 
       {/* Navegación Desktop */}
       <div className="fixed items-center justify-center left-1/2 transform -translate-x-1/2 rounded tracking-wide z-50 
-                      hidden md:flex md:flex-row md:w-[50%] items-center justify-center">
+                      hidden md:flex md:flex-row md:w-[60%] items-center justify-center">
         <StarBorder
           as="div"
           className="custom-class rounded-lg backdrop-blur-sm"
@@ -89,16 +89,17 @@ export default function Header({ refs, onNavClick, onToggleMainBg }) {
        {/* Botón de idioma */}
       <div
         onClick={toggleLanguage}
-        className="absolute items-center justify-center
+        className="absolute items-center justify-start
                    top-1/2 -translate-y-1/2
-                   right-[4rem] sm:right-[10rem] md:right-[0.2rem] lg:right-[0.4rem] xl:right-[0.4rem] 2xl:right-[0.4rem]
-                   w-20 h-10 flex items-center rounded-full p-1 cursor-pointer transition-colors
+                   right-[4rem] sm:right-[10rem] md:right-[0rem] lg:right-[0.4rem] xl:right-[0.4rem] 2xl:right-[0.4rem]
+                   w-20 h-10 md:w-10 md:h-9 flex items-center rounded-full p-1 cursor-pointer transition-colors
+               
                    bg-cyan-700/30 hover:bg-cyan-700/90
                    border"
       >
         <div
-          className={`bg-white w-8 h-8 rounded-full transform transition-transform flex items-center justify-center text-xs font-bold
-            ${idiom === "en" ? "translate-x-10" : "translate-x-0"}`}
+          className={`bg-white w-8 h-8 md:w-4 md:h-4 rounded-full transform transition-transform flex items-center justify-center text-xs font-bold
+            ${idiom === "en" ? "translate-x-full" : "translate-x-0"}`}
         >
           {idiom.toUpperCase()}
         </div>
@@ -107,11 +108,10 @@ export default function Header({ refs, onNavClick, onToggleMainBg }) {
       <button
         className="absolute items-center justify-center
                   top-1/2 -translate-y-1/2
-                  left-[5rem] sm:left-[16rem] md:left-auto md:right-[6rem] lg:right-[8rem] xl:right-[10rem] 2xl:right-[8rem]
-                  px-2 sm:px-2 md:px-2 lg:px-2 xl:px-2 2xl:px-2
-                  py-2 sm:py-2 md:py-2
+                  left-[5rem] sm:left-[16rem] md:left-auto md:right-[2.8rem] lg:right-[6rem] xl:right-[10rem] 2xl:right-[8rem]
+                  px-1 py-1
                   rounded-3
-                  text-sm sm:text-base
+                  text-[0.85rem] md:text-[0.1rem]
                   font-semibold
                   text-gray-100
                   bg-cyan-700/30 hover:bg-cyan-700/90
@@ -120,7 +120,7 @@ export default function Header({ refs, onNavClick, onToggleMainBg }) {
         onClick={onToggleMainBg}>
           <img src={bgicon}
                alt="bgicon"
-               className="w-3 h-3 object-contain flex justify-center items-center inline-block mr-2 filter invert brightness-200 contrast-150"
+               className="w-4 h-4 md:w-4 md:h-4 object-contain flex justify-center items-center inline-block mr-1 filter invert brightness-200 contrast-150"
           />
         {t("bgbutton")}
       </button>
@@ -173,7 +173,8 @@ export default function Header({ refs, onNavClick, onToggleMainBg }) {
                            divide-gray-700/50 m-[1rem] w-full mt-1 px-6">
               <li
                 onClick={() => { onNavClick(aboutRef, "/About"); setOpen(false); }}
-                className="cursor-pointer inline-block px-[6rem] py-2 transition border-y-2 border-gray-800 active:text-green-700"
+                className="cursor-pointer inline-block px-[6rem] py-2 transition border-y-2 border-gray-800 active:text-green-700
+                           tracking-wide"
               >
                 {t("about")}
               </li>

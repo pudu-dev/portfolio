@@ -27,7 +27,9 @@ export default function Landing() {
             </GradientText>
           </div>
           <div className="flex justify-center items-center m-[1rem]">
-            <NeonEarth />
+            <div>
+              <NeonEarth />
+            </div>
           </div>
         </div>
         </section>
