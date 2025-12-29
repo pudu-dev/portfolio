@@ -107,7 +107,7 @@ export default function Header({ refs, onNavClick, onToggleMainBg }) {
       <button
         className="absolute items-center justify-center
                   top-1/2 -translate-y-1/2
-                  left-[8rem] sm:left-[16rem] md:left-auto md:right-[6rem] lg:right-[8rem] xl:right-[10rem] 2xl:right-[8rem]
+                  left-[5rem] sm:left-[16rem] md:left-auto md:right-[6rem] lg:right-[8rem] xl:right-[10rem] 2xl:right-[8rem]
                   px-2 sm:px-2 md:px-2 lg:px-2 xl:px-2 2xl:px-2
                   py-2 sm:py-2 md:py-2
                   rounded-3
