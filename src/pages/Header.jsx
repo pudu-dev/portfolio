@@ -91,7 +91,7 @@ export default function Header({ refs, onNavClick, onToggleMainBg }) {
         onClick={toggleLanguage}
         className="absolute items-center justify-center
                    top-1/2 -translate-y-1/2
-                   right-1/6 sm:right-[10rem] md:right-[0.2rem] lg:right-1/10 xl:right-1/15 2xl:right-1/8
+                   right-[4rem] sm:right-[10rem] md:right-[0.2rem] lg:right-[0.4rem] xl:right-[0.4rem] 2xl:right-[0.4rem]
                    w-20 h-10 flex items-center rounded-full p-1 cursor-pointer transition-colors
                    bg-cyan-700/30 hover:bg-cyan-700/90
                    border"
@@ -107,9 +107,9 @@ export default function Header({ refs, onNavClick, onToggleMainBg }) {
       <button
         className="absolute items-center justify-center
                   top-1/2 -translate-y-1/2
-                  right-[8rem] sm:right-1/3 md:right-[3rem] lg:right-1/8 xl:right-1/8 -translate-x-1/2
-                  px-2 sm:px-5 md:px-6 md:py-3
-                  py-2 sm:py-2.5 md:py-3
+                  left-[8rem] sm:left-[16rem] md:left-auto md:right-[6rem] lg:right-[8rem] xl:right-[10rem] 2xl:right-[8rem]
+                  px-2 sm:px-2 md:px-2 lg:px-2 xl:px-2 2xl:px-2
+                  py-2 sm:py-2 md:py-2
                   rounded-3
                   text-sm sm:text-base
                   font-semibold

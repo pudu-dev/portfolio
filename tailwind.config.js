@@ -5,7 +5,7 @@ export default {
   ],
   theme: {
     extend: {
-
+      /* custom breakpoints*/
       screens: {
         /* Teléfonos */
         'phone-little': '360px',
