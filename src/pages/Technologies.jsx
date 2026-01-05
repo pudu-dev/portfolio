@@ -31,7 +31,7 @@ export default function Technologies() {
             <div className="flex flex-col items-center justify-top w-[100%] h-fit p-[1rem] rounded-2xl border-4 border-purple-950/25 bg-gradient-to-br from-gray-800/80 to-gray-900/60 shadow-lg transition-transform hover:border-cyan-700">
               <span className="text-[1rem] md:text-[2rem] font-semibold text-white text-center mb-[1rem]"> {t("card1_title")} </span>
               <div className="flex flex-col items-center justify-center text-white">
-                <div className="flex flex-col md:flex-row gap-1 ">
+                <div className="flex flex-wrap md:flex-row gap-2 md:gap-4 justify-center items-center">
                   <Icons.Windows95Icon/>
                   <Icons.LinuxIcon />
                 </div>
@@ -42,7 +42,7 @@ export default function Technologies() {
           <ParticleCard>
             <div className="flex flex-col items-center justify-top w-[100%] p-[1rem] h-fit rounded-2xl border-4 border-purple-950/25 bg-gradient-to-br from-gray-800/80 to-gray-900/60 shadow-lg transition-transform hover:border-cyan-700">
               <span className="text-[1rem] md:text-[2rem]  font-semibold text-white text-center mb-[1rem] "> {t("card2_title")}</span>
-                <div className="">
+                <div className="flex flex-wrap md:flex-row gap-2 md:gap-4 justify-center items-center">
                     <Icons.PythonIcon/>
                 </div>
               <span className="text-[0.8rem] md:text-[1rem] text-center text-white pt-[1rem] pb-[0.5rem] "> {t("card2_subtitle")}</span>
@@ -56,33 +56,33 @@ export default function Technologies() {
           <ParticleCard>
             <div className="flex flex-col items-center justify-top w-[100%] p-[1rem] h-fit rounded-2xl border-4 border-purple-950/25 bg-gradient-to-br from-gray-800/80 to-gray-900/60 shadow-lg transition-transform hover:border-cyan-700">
               <span className="text-[1rem] md:text-[2rem] font-semibold text-white text-center mb-[1rem] "> {t("card3_title")}</span>
-                <div className="flex flex-col md:flex-row gap-1 ">
+                <div className="flex flex-wrap md:flex-row gap-2 md:gap-4 justify-center items-center">
                     <Icons.JavascriptIcon />
                     <Icons.Html5Icon />
                     <Icons.CssIcon />
                 </div>
               <span className="text-[0.8rem] md:text-[1rem] text-center text-white pt-[1rem] pb-[0.5rem] "> {t("card3_subtitle")}</span>
-              <div className="flex flex-col md:flex-row gap-1  ">
+                <div className="flex flex-wrap md:flex-row gap-2 md:gap-4 justify-center items-center">
                 <Icons.ViteIcon  />
                 <Icons.ReactIcon/>
                 <Icons.TailwindIcon />
                 <Icons.BootstrapIcon />
                 <Icons.ThreejsIcon />
-              </div>
+                </div>
             </div>
           </ParticleCard>
 
           <ParticleCard>
             <div className="flex flex-col items-center justify-top w-[100%] h-fit p-[1rem] rounded-2xl border-4 border-purple-950/25 bg-gradient-to-br from-gray-800/80 to-gray-900/60 shadow-lg transition-transform hover:border-cyan-700">
               <span className="text-[1rem] md:text-[2rem] font-semibold text-white text-center mb-[1rem]"> {t("card4_title")}</span>
-                <div className="flex flex-col md:flex-row gap-1 ">
-                  <div className="col-start-1 row-start-1"><Icons.SqlIcon/> </div>
-                  <div className="col-start-2 row-start-1"><Icons.MongodbIcon/></div>
-                  <div className="col-start-1 row-start-2"><Icons.SqliteIcon/> </div>
-                  <div className="col-start-1 row-start-3"><Icons.WorkbenchIcon/>  </div>
+                <div className="flex flex-wrap md:flex-row gap-2 md:gap-4 justify-center items-center">
+                  <Icons.SqlIcon/> 
+                  <Icons.MongodbIcon/>
+                  <Icons.SqliteIcon/> 
+                  <Icons.WorkbenchIcon/>  
                 </div>
               <span className="text-[1rem] md:text-[2rem] text-center text-white pt-[1rem] pb-[0.5rem]"> {t("card4_subtitle")}</span>
-                <div className="flex flex-col md:flex-row gap-1  ">
+                <div className="flex flex-wrap md:flex-row gap-2 md:gap-4 justify-center items-center">
                   <Icons.ExcelIcon/>
                   <Icons.PowerbiIcon/>
                   <Icons.KnimeLogo/>
