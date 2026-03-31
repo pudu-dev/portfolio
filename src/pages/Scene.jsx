@@ -29,7 +29,7 @@ const moonRef = useRef();
           blackHoleRef={blackHoleRef}>
         </Background>
       </Suspense> 
-      <CameraController /> 
+      <CameraController /* moonRef={moonRef} earthRef={earthRef} sunRef={sunRef} blackHoleRef={blackHoleRef} */ /> 
       <CameraDebugger/> 
     </Canvas>
   );

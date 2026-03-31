@@ -32,13 +32,13 @@ export default function CameraController({ moonRef, earthRef, sunRef, blackHoleR
         '/about': new THREE.Vector3(0, 0, 10),
         '/technologies': new THREE.Vector3(0, 0, 20),
         '/proyects': new THREE.Vector3(0, 0, 30),
-        '/gallery': new THREE.Vector3(0, 0, 30),
+        '/gallery': new THREE.Vector3(0, 0, 40),
       };
       targetPosition.current.copy(fixedPositions[location.pathname.toLowerCase()] || new THREE.Vector3(0,0,0));
     }
 
     // Calcula nueva posición de cámara (offset para ver el planeta)
-    const offset = new THREE.Vector3(0, 0, 11);
+    const offset = new THREE.Vector3(0, 0, 10);
     const newCameraPos = targetPosition.current.clone().add(offset);
 
     // Cancela animación previa si existe

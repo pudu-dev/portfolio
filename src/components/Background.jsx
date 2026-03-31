@@ -25,6 +25,12 @@ export default function Background({ moonRef, earthRef, sunRef, blackHoleRef }) 
       sunRef.current.rotation.z += 0.0001;
     }
 
+    if (blackHoleRef.current) {
+      blackHoleRef.current.rotation.y += 0.0000;
+      blackHoleRef.current.rotation.x = THREE.MathUtils.degToRad(0);
+      blackHoleRef.current.rotation.z += 0.0000;
+    }
+
   });
 
   return (
