@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { useThree, useFrame } from '@react-three/fiber';
+import { useThree} from '@react-three/fiber';
 import { useLocation } from 'react-router-dom';
 import * as THREE from 'three';
 import gsap from 'gsap';
@@ -57,11 +57,6 @@ export default function CameraController({ moonRef, earthRef, sunRef, blackHoleR
     lookAtPosition.current.copy(targetPosition.current);
 
   }, [location.pathname, moonRef, earthRef, sunRef, blackHoleRef, camera.position]);
-
-  // Actualiza la orientación de la cámara en cada frame para mirar el planeta
-  useFrame(() => {
-    camera.lookAt(lookAtPosition.current);
-  });
 
   return null;
 }
