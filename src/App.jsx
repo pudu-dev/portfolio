@@ -68,7 +68,7 @@ function AppContent() {
     navigate(path, { replace: true });
   };
 /* vuelve transparente el fondo */
-  const [mainTransparent, setMainTransparent] = useState(false);
+  const [mainTransparent, setMainTransparent] = useState(true);
   
 
   return (
