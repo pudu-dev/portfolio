@@ -7,15 +7,15 @@ import Divisor from '../components/divisor';
 
 export default function Gallery() {
   const imagenes = [
-    { id: 1, src: "/assets/img/chillan.jpg", caption: "" },
-    { id: 2, src: "/assets/img/atacama.jpg", caption: "" },
-    { id: 3, src: "/assets/img/montañas.jpg", caption: "" },
-    { id: 4, src: "/assets/img/neonland.jpg", caption: "" },
+    { id: 1, src: "/assets/img/gallery/chillan.jpg", caption: "" },
+    { id: 2, src: "/assets/img/gallery/atacama.jpg", caption: "" },
+    { id: 3, src: "/assets/img/gallery/montañas.jpg", caption: "" },
+    { id: 4, src: "/assets/img/gallery/neonland.jpg", caption: "" },
   ];
 
   const [showModal, setShowModal] = useState(false);
   const [index, setIndex] = useState(0);
-
+                                                                                                                                                                               
   const total = imagenes.length;
   const nextImg = () => setIndex((prev) => (prev + 1) % total);
   const prevImg = () => setIndex((prev) => (prev - 1 + total) % total);
@@ -34,7 +34,7 @@ export default function Gallery() {
         </span>
 
         <div>
-          <Divisor></Divisor>
+          <Divisor imagen={2}></Divisor>
         </div>
 
         <div className="grid grid-cols-2 gap-[0.5rem] my-[2rem] md:grid-cols-4 md:my-[5rem] md:px-[5rem] md:gap-[2.5rem] ">

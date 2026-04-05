@@ -3,10 +3,10 @@ import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
 export default function Background({ moonRef, earthRef, sunRef, blackHoleRef }) {
-  const moonGLTF = useGLTF('/glb/the_moon.glb');
-  const earthGLTF = useGLTF('/glb/earth.glb');
-  const sunGLTF = useGLTF('/glb/mart.glb');
-  const blackHoleGLTF = useGLTF('/glb/blackhole.glb');
+  const moonGLTF = useGLTF('/assets/glb/the_moon.glb');
+  const earthGLTF = useGLTF('/assets/glb/earth.glb');
+  const sunGLTF = useGLTF('/assets/glb/mart.glb');
+  const blackHoleGLTF = useGLTF('/assets/glb/blackhole.glb');
 
   useFrame(() => {
     if (moonRef.current) {

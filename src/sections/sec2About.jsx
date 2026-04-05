@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 export default function Cards() {
 
   const { t } = useTranslation("sec2about");
+  
   // Todas las tarjetas
   const cards = [
     // 1. Education

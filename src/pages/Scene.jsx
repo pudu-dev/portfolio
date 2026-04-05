@@ -17,7 +17,6 @@ const moonRef = useRef();
   return (
     <Canvas>
       <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={60} />
-{/*       <OrbitControls /> */}
       <ambientLight intensity={0.5} />
       <directionalLight position={[2, 2, 5]} />
       <Stars />
@@ -30,7 +29,8 @@ const moonRef = useRef();
         </Background>
       </Suspense> 
       <CameraController /> 
-      <CameraDebugger/> 
+{/*       <OrbitControls /> */}
+{/*       <CameraDebugger/> */} 
     </Canvas>
   );
 }

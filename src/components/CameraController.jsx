@@ -17,7 +17,8 @@ export default function CameraController({ moonRef, earthRef, sunRef, blackHoleR
     const routeRef = {
       '/about': earthRef,
       '/technologies': moonRef,
-      '/proyects': sunRef,
+      '/work': sunRef,
+      '/personal_proyects': blackHoleRef,
       '/gallery': blackHoleRef,
     };
 
@@ -31,7 +32,8 @@ export default function CameraController({ moonRef, earthRef, sunRef, blackHoleR
       const fixedPositions = {
         '/about': new THREE.Vector3(0, 0, 10),
         '/technologies': new THREE.Vector3(0, 0, 20),
-        '/proyects': new THREE.Vector3(0, 0, 30),
+        '/work': new THREE.Vector3(0, 0, 30),
+        '/personal_proyects': new THREE.Vector3(0, 0, 40),
         '/gallery': new THREE.Vector3(0, 0, 40),
       };
       targetPosition.current.copy(fixedPositions[location.pathname.toLowerCase()] || new THREE.Vector3(0,0,0));

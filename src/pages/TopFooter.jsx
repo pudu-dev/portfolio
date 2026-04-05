@@ -46,7 +46,7 @@ export default function TopFooter({ mainRef }) {
           <button
             className="bg-gray-950 text-sky-400 px-2.5 py-1 border-2 rounded hover:bg-sky-400/50 transition duration-300"
             onClick={handleScrollToggle}
-            aria-label={atTop ? t("aria.gotoEnd") : t("aria.gotoTop")}
+            aria-label={atTop ? t("buttonscrolldown") : t("buttonscrollup")}
           >
             <div className="flex flex-col items-center">
               {atTop ? (

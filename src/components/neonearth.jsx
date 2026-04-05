@@ -5,7 +5,7 @@ import * as THREE from 'three';
 
 function Model() {
   const ref = useRef();
-  const { scene } = useGLTF('/glb/neonearth.glb');
+  const { scene } = useGLTF('/assets/glb/neonearth.glb');
 
   // 🌍 Rotación automática
   useFrame(() => {
@@ -26,7 +26,7 @@ function Model() {
   );
 }
 
-useGLTF.preload('/glb/neonearth.glb');
+useGLTF.preload('/assets/glb/neonearth.glb');
 
 export default function NeonEarth() {
   return (

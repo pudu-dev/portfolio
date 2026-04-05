@@ -5,7 +5,8 @@ import TopFooter from "./pages/TopFooter";
 import Footer from "./pages/Footer"
 import About from "./pages/About";
 import Technologies from "./pages/Technologies";
-import Proyects from "./pages/Proyects";
+import Work from "./pages/Work";
+import Personal_Proyects from "./pages/Personal_Proyects";
 import Gallery from "./pages/Gallery";
 import Scene from "./pages/Scene";
 import Landing from "./pages/Landing";
@@ -24,7 +25,8 @@ function AppContent() {
   const mainRef = useRef(null);
   const aboutRef = useRef(null);
   const techRef = useRef(null);
-  const proyectsRef = useRef(null);
+  const workRef = useRef(null);
+  const personalProyectsRef = useRef(null);
   const galleryRef = useRef(null);
   const footerRef = useRef(null);
 
@@ -35,7 +37,8 @@ function AppContent() {
         { path: "/Landing", ref: landingRef },
         { path: "/About", ref: aboutRef },
         { path: "/Technologies", ref: techRef },
-        { path: "/Proyects", ref: proyectsRef },
+        { path: "/Work", ref: workRef },
+        { path: "/Personal_Proyects", ref: personalProyectsRef },
         { path: "/Gallery", ref: galleryRef},
         { path: "/Footer", ref: footerRef},
       ];
@@ -89,7 +92,7 @@ function AppContent() {
       {/* Header */}
       {!isLoading && (
         <header className="fixed z-50 top-0 w-[99%] overflow-hidden">
-            <Header refs={{ landingRef, aboutRef, techRef, proyectsRef , galleryRef}} onNavClick={handleNavClick}
+            <Header refs={{ landingRef, aboutRef, techRef, workRef , personalProyectsRef, galleryRef}} onNavClick={handleNavClick}
             onToggleMainBg={() => setMainTransparent(prev => !prev)}
             />
         </header>
@@ -102,7 +105,8 @@ function AppContent() {
             <section className={`${mainTransparent ? "bg-transparent" :"bg-gradient-to-b from-[#14002e] to-[#000319]"}`} ref={landingRef}><Landing /></section>
             <section className={`${mainTransparent ? "bg-transparent" :"bg-[#000319]"}`} ref={aboutRef}><About /></section>
             <section className={`${mainTransparent ? "bg-transparent" :"bg-gradient-to-b from-[#000319] via-[#1b0031] to-[#000319]"}`} ref={techRef}><Technologies /></section>
-            <section className={`${mainTransparent ? "bg-transparent" :"bg-gradient-to-br from-[#000319] via-[#000319] to-[#212c80]"}`} ref={proyectsRef}><Proyects /></section>
+            <section className={`${mainTransparent ? "bg-transparent" :"bg-gradient-to-br from-[#000319] via-[#000319] to-[#212c80]"}`} ref={workRef}><Work /></section>
+            <section className={`${mainTransparent ? "bg-transparent" :"bg-gradient-to-tr from-[#000319] via-[#000319] to-[#212c80]"}`} ref={personalProyectsRef}><Personal_Proyects /></section>
             <section className={`${mainTransparent ? "bg-transparent" :"bg-gradient-to-tr from-[#000319] via-[#000319] to-[#212c80]"}`} ref={galleryRef}><Gallery /></section>
             <section className="bg-gradient-to-b from-[#14002e] to-[#000319]" ref={footerRef}><Footer /></section>
           </>
@@ -125,7 +129,7 @@ function AppContent() {
 export default function App() {
   return (
     <Router>
-      <Analytics/>
+      <Analytics debug={false} />
       <AppContent />
     </Router>
   );
