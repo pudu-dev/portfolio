@@ -36,20 +36,6 @@ export default function Landing() {
       </section>
 
 
-
-
-
-          <GradientText
-            colors={["#40ffaa", "#40b0ff", "#4079ff", "#8a00ff", "#b34fff"]}
-            animationSpeed={10}
-            showBorder={false}
-            className="text-[clamp(2.5rem,5vw,5rem)] p-[1rem] permanent-marker-regular text-center">
-              Estoy desarrollando mi portafolio <br/> ¡pronto habra mas contenido!
-          </GradientText>
-
-
-
-
       {/* Presentation Card */}
       <PresentationCard/>
 
