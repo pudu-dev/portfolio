@@ -1,37 +1,42 @@
 import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera, Stars } from '@react-three/drei';
-import { useRef } from 'react' 
 import { Suspense } from 'react'; 
-
-import Background from '../components/Background'; 
 import CameraController from '../components/CameraController';
 
-import { OrbitControls } from '@react-three/drei';
-import CameraDebugger from '../components/CameraDebugger' 
 
-export default function Scene() {
- 
-const moonRef = useRef();
-  const earthRef = useRef();
-  const sunRef = useRef();
-  const blackHoleRef = useRef(); 
+export default function Scene({ children, config = {}}) {
+
+  // Configuración dinámica del canvas
+  const {
+    canvasProps = {dpr: [1, 2], gl: { antialias: true, powerPreference: "high-performance" }},
+    camera = { position: [0, 0, 10], fov: 60 },
+    ambient = 0.5,
+    directional = { position: [2, 2, 5], intensity: 1 },
+    stars = { show: true, count: 5000, size: 1, fade: true, speed: 1 },
+  } = config;
+
   return (
-    <Canvas>
-      <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={60} />
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[2, 2, 5]} />
-      <Stars />
-       <Suspense fallback={null}>
-        <Background
-          moonRef={moonRef}
-          earthRef={earthRef}
-          sunRef={sunRef}
-          blackHoleRef={blackHoleRef}>
-        </Background>
-      </Suspense> 
-      <CameraController /> 
-{/*       <OrbitControls /> */}
-{/*       <CameraDebugger/> */} 
+    /* Plantilla de Canvas */
+    <Canvas {...canvasProps}>
+      {/* Luces */}
+      <ambientLight intensity={ambient} />
+      <directionalLight position={directional.position} intensity={directional.intensity} />
+
+      {/* Cámara */}
+      <PerspectiveCamera makeDefault position={camera.position} fov={camera.fov} />
+      <CameraController />
+
+      {/* Fondo */}
+      {stars?.show && <Stars {...stars} />}
+
+      {/* Escenas dinámicas */}
+      <Suspense fallback={null}>
+        {children}
+      </Suspense>
+
+      {/* Debug opcional */}
+      {/* <OrbitControls /> */}
+      {/* <CameraDebugger /> */}
     </Canvas>
   );
 }

@@ -1,8 +1,15 @@
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
+import { useRef } from 'react';
 import * as THREE from 'three';
 
-export default function Background({ moonRef, earthRef, sunRef, blackHoleRef }) {
+export default function Background() {
+
+  const moonRef = useRef(null);
+  const earthRef = useRef(null);
+  const sunRef = useRef(null);
+  const blackHoleRef = useRef(null);
+
   const moonGLTF = useGLTF('/assets/glb/the_moon.glb');
   const earthGLTF = useGLTF('/assets/glb/earth.glb');
   const sunGLTF = useGLTF('/assets/glb/mart.glb');
@@ -43,7 +50,7 @@ export default function Background({ moonRef, earthRef, sunRef, blackHoleRef }) 
   );
 }
 
-useGLTF.preload('/glb/the_moon.glb');
-useGLTF.preload('/glb/earth.glb');
-useGLTF.preload('/glb/mart.glb');
-useGLTF.preload('/glb/blackhole.glb');
+useGLTF.preload('/assets/glb/the_moon.glb');
+useGLTF.preload('/assets/glb/earth.glb');
+useGLTF.preload('/assets/glb/mart.glb');
+useGLTF.preload('/assets/glb/blackhole.glb');

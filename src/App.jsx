@@ -9,11 +9,14 @@ import Technologies from "./pages/Technologies";
 import Work from "./pages/Work";
 import Personal_Proyects from "./pages/Personal_Proyects";
 import Gallery from "./pages/Gallery";
-import Scene from "./pages/Scene";
 import Home from "./pages/Home";
+import Scene from "./pages/Scene";
 import Landing from "./pages/Landing";
+import Background from "./components/Background";
 
 import { Analytics } from "@vercel/analytics/react"
+
+
 
 
 function AppContent() {
@@ -78,16 +81,20 @@ function AppContent() {
   return (
     <div className="relative w-dvw h-dvh bg-white">
 
-      {/* Fondo  3D*/}
+      {/* Fondo  3D - Canvas unico*/}
       {!isLoad && (
       <div className="fixed w-full h-full z-0 pointer-events-none bg-black/99">
-        <Scene />
+        <Scene config={{
+          stars: { show: true, count: 5000, fade: true, speed: 1 }
+        }}>
+          <Background />
+        </Scene>
       </div>
       )}
 
       {isLoad && (
-      <div className="fixed w-full h-full z-50 bg-[#000319]">
-        <Landing />
+      <div className="fixed w-full h-full z-50 bg-transparent">
+        <Landing/>
       </div>
       )} 
 

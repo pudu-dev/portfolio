@@ -2,25 +2,10 @@ import { useNavigate } from "react-router-dom";
 import GradientText from "../components/TextMain";
 import NeonEarth from '../components/neonearth';
 import { useGLTF } from '@react-three/drei';
-import { Canvas } from '@react-three/fiber';
-import { PerspectiveCamera, Stars } from '@react-three/drei';
 
 import { useState } from "react";
 import Preloader from "./preLoader";
-
-function LoadingCanvas() {
-
-  return (
-    <>
-    <Canvas>
-      <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={60} />
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[2, 2, 5]} intensity={1} />
-      <Stars />
-    </Canvas>
-    </>
-  );
-}
+import Scene from "./Scene";
 
 
 export default function Load() {
@@ -39,10 +24,14 @@ export default function Load() {
 
       {!loading && (
       <>
-        <div className="absolute z-0 w-full h-full"> 
-               <LoadingCanvas/>
+        <div className="fixed w-full h-full z-0 pointer-events-none bg-black/99">
+          <Scene
+            config={{
+              stars: { show: true, count: 5000, fade: true, speed: 1 }
+            }}
+          />
         </div>
-           
+
         <section className="relative bg-transparent h-full w-full">
           <div className="flex flex-col md:flex-row items-center justify-center h-full w-full gap-8">
             <div className='flex flex-col justify-center items-center text-center z-10 px-4'>
@@ -65,11 +54,11 @@ export default function Load() {
               </div>
             </div>
         
-            <div className="w-full md:w-auto flex justify-center ">
+            <div className="flex justify-center backdrop-blur-sm bg-[#010a5038] rounded-full">
                 <NeonEarth/>
             </div>
             
-            <div className="absolute bottom-0 right-0 text-gray-800 text-[1rem] ">
+            <div className="absolute bottom-0 right-0 text-gray-800 text-[1rem]">
               by Pudu
             </div>
             </div>
