@@ -1,7 +1,6 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
-import "../components/Neon.css";
 
 import { useTranslation } from "react-i18next";
 
@@ -56,12 +55,12 @@ export default function WhatIdo() {
         <div className="flex flex-wrap justify-center items-stretch mt-8 sm:mt-12 md:mt-16 lg:mt-20 px-4">
           <div ref={skillsRef} className="text-white tracking-wide leading-relaxed border-2 rounded-lg shadow-lg bg-white/5 w-fit text-center">       
             <div className="flex items-center">
-              <div className="w-full text-center text-lg sm:text-xl md:text-2xl border-b-2 neon-border py-2 sm:py-3 font-semibold">
+              <div className="w-full text-center text-lg sm:text-xl md:text-2xl border-b-2 py-2 sm:py-3 font-semibold">
                 {t("skills_title")}
               </div>
             </div>
             
-            <div className="text-sm sm:text-base md:text-lg lg:text-xl p-3 sm:p-4 md:p-6 neon-border space-y-2 px-5">
+            <div className="text-sm sm:text-base md:text-lg lg:text-xl p-3 sm:p-4 md:p-6 space-y-2 px-5">
               <div>{t("skill1")}</div>
               <div>{t("skill2")}</div>
               <div>{t("skill3")}</div>
