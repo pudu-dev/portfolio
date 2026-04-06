@@ -36,7 +36,7 @@ export default function Landing() {
       </section>
 
 
-      <section className='relative w-full h-full pt-[5%] bg-transparent'>
+
 
 
           <GradientText
@@ -47,7 +47,6 @@ export default function Landing() {
               Estoy desarrollando mi portafolio <br/> ¡pronto habra mas contenido!
           </GradientText>
 
-      </section>
 
 
 
