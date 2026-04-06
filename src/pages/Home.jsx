@@ -38,6 +38,7 @@ export default function Landing() {
 
       <section className='relative w-full h-full pt-[5%] bg-transparent'>
 
+
           <GradientText
             colors={["#40ffaa", "#40b0ff", "#4079ff", "#8a00ff", "#b34fff"]}
             animationSpeed={10}
