@@ -1,33 +1,84 @@
-import NeonEarth from '../components/neonearth';
+import { useNavigate } from "react-router-dom";
 import GradientText from "../components/TextMain";
+import NeonEarth from '../components/neonearth';
+import { useGLTF } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
+import { PerspectiveCamera, Stars } from '@react-three/drei';
 
-import { useTranslation } from "react-i18next";
+import { useState } from "react";
+import Preloader from "./preLoader";
 
-export default function Landing() {
+function LoadingCanvas() {
 
-  const { t } = useTranslation("landing");
-  
   return (
     <>
-      <div className='relative top-0 bg-gradient-to-b from-[#14002e] to-[#000319] w-full h-[5rem] md:h-[8rem] neon-border-bottom '></div>
-
-      <section className='relative w-full h-full pt-[5%] bg-transparent'>
-
-          <div className='flex flex-col gap-[1rem] '>
-            <span className="text-[clamp(2rem,5vw,4rem)]  font-black justify-content-center items-center text-center"
-                  style={{textShadow: "1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black"}}>
-              👋 
-            </span>
-            <GradientText
-              colors={["#40ffaa", "#40b0ff", "#4079ff", "#8a00ff", "#b34fff"]}
-              animationSpeed={10}
-              showBorder={false}
-              className="text-[clamp(2.5rem,5vw,5rem)] p-[1rem] permanent-marker-regular text-center">
-                {t("welcome")}
-            </GradientText>
-          </div>
-   
-        </section>
+    <Canvas>
+      <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={60} />
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[2, 2, 5]} intensity={1} />
+      <Stars />
+    </Canvas>
     </>
   );
 }
+
+
+export default function Load() {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true); 
+
+  const goToHome = () => {
+    navigate("/Home"); 
+  };
+
+  useGLTF.preload('/assets/glb/neonearth.glb');
+
+  return (
+    <>
+      {loading && <Preloader onFinish={() => setLoading(false)} />}
+
+      {!loading && (
+      <>
+        <div className="absolute z-0 w-full h-full"> 
+               <LoadingCanvas/>
+        </div>
+           
+        <section className="relative bg-transparent h-full w-full">
+          <div className="flex flex-col md:flex-row items-center justify-center h-full w-full gap-8">
+            <div className='flex flex-col justify-center items-center text-center z-10 px-4'>
+              <GradientText
+                colors={["#40ffaa", "#40b0ff", "#4079ff", "#8a00ff", "#b34fff"]}
+                animationSpeed={10}
+                showBorder={false}
+                className="flex flex-col md:flex-row text-[clamp(2rem,5vw,6rem)] whitespace-nowrap">
+                 &lt;/&gt;  ¡ Hello World !<br/>
+              </GradientText>
+        
+              <div className="flex justify-center items-center text-center">
+              <button 
+                onClick={goToHome} 
+                className="w-24 h-12 sm:w-28 sm:h-14 md:w-32 md:h-16 lg:w-36 lg:h-18 bg-gradient-to-r from-[#40ffa9a4] via-[#4079ffb4] to-[#7725de] hover:scale-105 transition-transform duration-300 border-2 border-black/99 rounded-4 hover:border-cyan-500">
+                <span className="text-center text-sm sm:text-base md:text-lg text-black font-semibold">
+                  GO IN<br/> 
+                </span>
+              </button>
+              </div>
+            </div>
+        
+            <div className="w-full md:w-auto flex justify-center ">
+                <NeonEarth/>
+            </div>
+            
+            <div className="absolute bottom-0 right-0 text-gray-800 text-[1rem] ">
+              by Pudu
+            </div>
+            </div>
+        </section>  
+      </>
+      
+    )}
+    </>
+  );
+}
+
+

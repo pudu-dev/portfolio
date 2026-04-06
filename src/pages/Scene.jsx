@@ -1,11 +1,12 @@
-
 import { Canvas } from '@react-three/fiber';
-import { PerspectiveCamera, OrbitControls, Stars } from '@react-three/drei';
+import { PerspectiveCamera, Stars } from '@react-three/drei';
 import { useRef } from 'react' 
 import { Suspense } from 'react'; 
 
 import Background from '../components/Background'; 
 import CameraController from '../components/CameraController';
+
+import { OrbitControls } from '@react-three/drei';
 import CameraDebugger from '../components/CameraDebugger' 
 
 export default function Scene() {

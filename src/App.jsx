@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+
 import Header from "./pages/Header";
 import TopFooter from "./pages/TopFooter";
 import Footer from "./pages/Footer"
@@ -9,8 +10,8 @@ import Work from "./pages/Work";
 import Personal_Proyects from "./pages/Personal_Proyects";
 import Gallery from "./pages/Gallery";
 import Scene from "./pages/Scene";
+import Home from "./pages/Home";
 import Landing from "./pages/Landing";
-import Loading from "./pages/Loading";
 
 import { Analytics } from "@vercel/analytics/react"
 
@@ -19,9 +20,9 @@ function AppContent() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const isLoading = location.pathname === "/";
+  const isLoad = location.pathname === "/";
 
-  const landingRef = useRef(null);
+  const homeRef = useRef(null);
   const mainRef = useRef(null);
   const aboutRef = useRef(null);
   const techRef = useRef(null);
@@ -34,7 +35,7 @@ function AppContent() {
   useEffect(() => {
     const handleScroll = () => {
       const sections = [
-        { path: "/Landing", ref: landingRef },
+        { path: "/Home", ref: homeRef },
         { path: "/About", ref: aboutRef },
         { path: "/Technologies", ref: techRef },
         { path: "/Work", ref: workRef },
@@ -78,21 +79,23 @@ function AppContent() {
     <div className="relative w-dvw h-dvh bg-white">
 
       {/* Fondo  3D*/}
+      {!isLoad && (
       <div className="fixed w-full h-full z-0 pointer-events-none bg-black/99">
         <Scene />
       </div>
-
-      {isLoading && (
-      <div className="fixed w-full h-full z-50 bg-[#000319]">
-        <Loading />
-      </div>
       )}
+
+      {isLoad && (
+      <div className="fixed w-full h-full z-50 bg-[#000319]">
+        <Landing />
+      </div>
+      )} 
 
 
       {/* Header */}
-      {!isLoading && (
+      {!isLoad && (
         <header className="fixed z-50 top-0 w-[99%] overflow-hidden">
-            <Header refs={{ landingRef, aboutRef, techRef, workRef , personalProyectsRef, galleryRef}} onNavClick={handleNavClick}
+            <Header refs={{ homeRef, aboutRef, techRef, workRef , personalProyectsRef, galleryRef}} onNavClick={handleNavClick}
             onToggleMainBg={() => setMainTransparent(prev => !prev)}
             />
         </header>
@@ -100,9 +103,9 @@ function AppContent() {
 
       {/* Main */}
       <main ref={mainRef} className="fixed w-full h-full overflow-y-auto" style={{ scrollbarWidth: "auto", scrollbarColor: "#d1d1d1 #2c2c2c" }}>
-        {!isLoading  && (
+        {!isLoad  && (
           <>
-            <section className={`${mainTransparent ? "bg-transparent" :"bg-gradient-to-b from-[#14002e] to-[#000319]"}`} ref={landingRef}><Landing /></section>
+            <section className={`${mainTransparent ? "bg-transparent" :"bg-gradient-to-b from-[#14002e] to-[#000319]"}`} ref={homeRef}><Home /></section>
             <section className={`${mainTransparent ? "bg-transparent" :"bg-[#000319]"}`} ref={aboutRef}><About /></section>
             <section className={`${mainTransparent ? "bg-transparent" :"bg-gradient-to-b from-[#000319] via-[#1b0031] to-[#000319]"}`} ref={techRef}><Technologies /></section>
             <section className={`${mainTransparent ? "bg-transparent" :"bg-gradient-to-br from-[#000319] via-[#000319] to-[#212c80]"}`} ref={workRef}><Work /></section>
@@ -114,7 +117,7 @@ function AppContent() {
       </main>
 
       {/* TopFooter */}
-      {!isLoading && (
+      {!isLoad && (
         <footer className="fixed w-full z-50 bottom-0 left-0 bg-black/1 ">
           <TopFooter mainRef={mainRef}/>
         </footer>

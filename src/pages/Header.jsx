@@ -22,7 +22,7 @@ export default function Header({ refs, onNavClick }) {
   const { t } = useTranslation("header");
 
   return (
-    <div className="relative flex items-center justify-between mx-2 py-3">
+    <div className="relative flex items-center justify-between mx-2 py-2.5 md:py-3 lg:py-3 xl:py-3">
 
       {/* Logo */}
       <div className="flex-shrink-0 items-center object-center w-15 h-15 md:w-25 md:h-25 object-contain backdrop-blur-sm bg-cyan-700/50 hover:bg-cyan-700/90 rounded-full hover:scale-110">
@@ -137,7 +137,7 @@ export default function Header({ refs, onNavClick }) {
                           animate-slide-down z-50">
                           
             {/* Botón cerrar */}
-            <div className="flex justify-end p-2">
+            <div className="flex justify-end px-2 pt-2">
 
               <button onClick={() => setOpen(false)} className="text-gray-300 active:text-red-500 transition">
 
@@ -155,31 +155,30 @@ export default function Header({ refs, onNavClick }) {
             </div>
         
             {/* Navegacion men amburguesa */}
-            <ul className="flex flex-col text-[1.5rem] text-gray-200 font-medium divide-gray-700/50 m-[1rem] w-full mt-1 px-6">
+            <ul className="flex flex-col text-[1.5rem] text-gray-100 font-medium divide-gray-700/50 m-[1rem] w-full mt-1 px-6">
 
               <li onClick={() => { onNavClick(aboutRef, "/About"); setOpen(false); }}
-                  className="cursor-pointer inline-block px-[6rem] py-2 transition border-y-2 border-gray-800 active:text-green-700
-                           tracking-wide">
+                  className="cursor-pointer px-[2rem] py-2 transition border-y-2 border-gray-800 active:text-green-700 whitespace-nowrap">
                 {t("about")}
               </li>
 
               <li onClick={() => { onNavClick(techRef, "/Technologies"); setOpen(false); }}
-                  className="cursor-pointer px-[6rem] py-2 transition border-b-2 border-gray-800 active:text-green-700">
+                  className="cursor-pointer px-[2rem] py-2 transition border-b-2 border-gray-800 active:text-green-700 whitespace-nowrap">
                 {t("technologies")}
               </li>
 
               <li onClick={() => { onNavClick(workRef, "/Work"); setOpen(false); }}
-                  className="cursor-pointer  px-[6rem] py-2 transition border-b-2 border-gray-800 active:text-green-700">
+                  className="cursor-pointer  px-[2rem] py-2 transition border-b-2 border-gray-800 active:text-green-700 whitespace-nowrap">
                 {t("work")}
               </li>
 
               <li onClick={() => { onNavClick(personalProyectsRef, "/Personal_Proyects"); setOpen(false); }}
-                  className="cursor-pointer  px-[6rem] py-2 transition border-b-2 border-gray-800 active:text-green-700">
+                  className="cursor-pointer  px-[2rem] py-2 transition border-b-2 border-gray-800 active:text-green-700 whitespace-nowrap">
                 {t("personalProyects")}
               </li>
 
               <li onClick={() => { onNavClick(galleryRef, "/Gallery"); setOpen(false); }}
-                  className="cursor-pointer px-[6rem] py-2 transition border-b-2 border-gray-800 active:text-green-700">
+                  className="cursor-pointer px-[2rem] py-2 transition border-b-2 border-gray-800 active:text-green-700 whitespace-nowrap">
                 {t("gallery")}
               </li>
 
