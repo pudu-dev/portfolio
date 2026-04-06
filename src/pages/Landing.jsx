@@ -4,7 +4,7 @@ import NeonEarth from '../components/neonearth';
 import { useGLTF } from '@react-three/drei';
 
 import { useState } from "react";
-import Preloader from "../components/Preloader";
+import Preloader from "../components/preLoader";
 import Scene from "./Scene";
 
 
