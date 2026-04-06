@@ -35,7 +35,9 @@ export default function Landing() {
    
       </section>
 
+
       <section className='relative w-full h-full pt-[5%] bg-transparent'>
+
           <GradientText
             colors={["#40ffaa", "#40b0ff", "#4079ff", "#8a00ff", "#b34fff"]}
             animationSpeed={10}
@@ -43,7 +45,9 @@ export default function Landing() {
             className="text-[clamp(2.5rem,5vw,5rem)] p-[1rem] permanent-marker-regular text-center">
               Estoy desarrollando mi portafolio <br/> ¡pronto habra mas contenido!
           </GradientText>
+
       </section>
+
 
 
       {/* Presentation Card */}
