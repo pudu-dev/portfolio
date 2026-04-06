@@ -29,7 +29,7 @@ export default function Preloader({ onFinish }) {
 
         {/* Logo / título */}
         <h1 className="text-white text-2xl tracking-widest mb-6 opacity-80">
-          LOADING
+          <div className="mb-6 w-12 h-12 border-4 border-white/20 border-t-cyan-400 rounded-full animate-spin"></div>
         </h1>
 
         {/* Barra */}

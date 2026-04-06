@@ -106,7 +106,7 @@ export default function Cards() {
     if (paused) return;
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % total);
-    }, 4000); // cambia cada 4 segundos (ajústalo como quieras)
+    }, 10000); // cambia cada 4 segundos (ajústalo como quieras)
 
     return () => clearInterval(interval); // limpiar cuando el componente se desmonte
   }, [total, paused]);
@@ -119,25 +119,28 @@ export default function Cards() {
       <div className="flex flex-col gap-3 bg-transparent">
         
         {/* Buttons */}
-        <div className="flex flex-row w-full h-full justify-center items-center gap-2">
+        <div className="flex flex-row w-full h-full justify-center items-center gap-1">
+
           <button onClick={prevCard}
-                  className="px-4 py-3 rounded-2 border-2 border-white hover:bg-indigo-500 transition">
+                  className="px-3 py-1 rounded-2 border-2 border-white hover:bg-indigo-500 transition">
             <i className="bi bi-chevron-double-left text-white"></i>
           </button>
+
+          {/* Tarjeta actual */}
+          <div className="flex w-65 lg:w-80 h-80 justify-center items-center">
+
+            <div className="flex w-full items-center justify-center"
+                  onMouseEnter={() => setPaused(true)}
+                  onMouseLeave={() => setPaused(false)}
+            >
+              {cards[index]}
+            </div>
+          </div>
+
           <button onClick={nextCard}
-                  className="px-4 py-3 rounded-2 border-2 border-white hover:bg-indigo-500 transition">
+                  className="px-3 py-1 rounded-2 border-2 border-white hover:bg-indigo-500 transition">
             <i className="bi bi-chevron-double-right text-white"></i>
           </button>
-        </div>
-         {/* Tarjeta actual */}
-        <div className="flex w-full h-full justify-center items-center gap-2">
-               
-          <div className="flex items-center justify-center"
-                onMouseEnter={() => setPaused(true)}
-                onMouseLeave={() => setPaused(false)}
-          >
-            {cards[index]}
-          </div>
         </div>
 
       </div>
