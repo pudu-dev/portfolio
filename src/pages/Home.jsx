@@ -41,7 +41,7 @@ export default function Landing() {
             animationSpeed={10}
             showBorder={false}
             className="text-[clamp(2.5rem,5vw,5rem)] p-[1rem] permanent-marker-regular text-center">
-              Estoy desarrollando mi portafolio, ¡pronto habra mas contenido!
+              Estoy desarrollando mi portafolio <br/> ¡pronto habra mas contenido!
           </GradientText>
       </section>
 
