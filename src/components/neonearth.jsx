@@ -7,7 +7,7 @@ function Model() {
   const ref = useRef();
   const { scene } = useGLTF('/assets/glb/neonearth.glb');
 
-  // 🌍 Rotación automática
+  // Rotación automática
   useFrame(() => {
     if (ref.current) {
       ref.current.rotation.y += 0.0002;
@@ -49,7 +49,7 @@ export default function NeonEarth() {
           }}
         />
 
-        {/* 🌍 Planeta */}
+        {/*  Planeta */}
         <Model />
       </Canvas>
     </div>
