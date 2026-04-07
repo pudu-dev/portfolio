@@ -31,7 +31,7 @@ export default function Work() {
             <span className="text-white text-[1rem] md:text-[1.2rem] font-semibold text-center whitespace-nowrap m-[1rem] ">
               {t("card2_title")}
             </span>
-            <a href="https://github.com/pudusito"
+            <a href="https://github.com/pudu-dev"
                target="_blank"
                rel="noopener noreferrer"
                className="mt-auto px-1 py-2 border-2 rounded text-white border-black bg-green-700/50 hover:bg-green-700 hover:scale-110 transition-transform duration-200">
